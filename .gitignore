@@ -1,0 +1,6 @@
+xcuserdata
+contents.xcworkspacedata
+IDEWorkspaceChecks.plist
+.DS_Store
+TodayWeather/Podfile.lock
+TodayWeather/Pods
