@@ -57,28 +57,29 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ZI-lm-rFS">
-                                <rect key="frame" x="0.0" y="58" width="367" height="609"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E49-bO-qqN">
-                                <rect key="frame" x="375" y="0.0" width="320" height="667"/>
+                                <rect key="frame" x="120" y="0.0" width="255" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="7cf-ip-D6e"/>
+                                    <constraint firstAttribute="width" constant="255" id="OIE-AM-xIV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vat-qM-5XG" firstAttribute="trailing" secondItem="E49-bO-qqN" secondAttribute="trailing" constant="-320" id="0mr-hi-Exb"/>
+                            <constraint firstItem="vat-qM-5XG" firstAttribute="trailing" secondItem="E49-bO-qqN" secondAttribute="trailing" id="0mr-hi-Exb"/>
                             <constraint firstItem="4yg-Rm-dzE" firstAttribute="top" secondItem="vat-qM-5XG" secondAttribute="top" id="93S-lK-ZhX"/>
                             <constraint firstItem="vat-qM-5XG" firstAttribute="trailing" secondItem="4yg-Rm-dzE" secondAttribute="trailing" id="A1M-zO-YPx"/>
-                            <constraint firstItem="E49-bO-qqN" firstAttribute="leading" secondItem="9ZI-lm-rFS" secondAttribute="trailing" constant="8" symbolic="YES" id="Fu5-1l-BYX"/>
+                            <constraint firstAttribute="trailing" secondItem="9ZI-lm-rFS" secondAttribute="trailing" id="FiI-1I-Hru"/>
+                            <constraint firstItem="E49-bO-qqN" firstAttribute="width" secondItem="38L-2D-Tpw" secondAttribute="width" multiplier="255/375" priority="250" id="Mkm-80-Ezv"/>
                             <constraint firstItem="vat-qM-5XG" firstAttribute="bottom" secondItem="E49-bO-qqN" secondAttribute="bottom" id="SId-6s-kpr"/>
+                            <constraint firstItem="9ZI-lm-rFS" firstAttribute="top" secondItem="vat-qM-5XG" secondAttribute="top" id="VUD-at-P93"/>
                             <constraint firstItem="4yg-Rm-dzE" firstAttribute="leading" secondItem="vat-qM-5XG" secondAttribute="leading" id="jsh-qC-4hc"/>
                             <constraint firstItem="vat-qM-5XG" firstAttribute="bottom" secondItem="9ZI-lm-rFS" secondAttribute="bottom" id="px6-5V-yHV"/>
                             <constraint firstItem="9ZI-lm-rFS" firstAttribute="leading" secondItem="vat-qM-5XG" secondAttribute="leading" id="t4g-tW-oDL"/>
-                            <constraint firstItem="9ZI-lm-rFS" firstAttribute="top" secondItem="4yg-Rm-dzE" secondAttribute="bottom" constant="8" symbolic="YES" id="v9k-Lc-FoH"/>
                             <constraint firstItem="E49-bO-qqN" firstAttribute="top" secondItem="vat-qM-5XG" secondAttribute="top" id="zI3-9B-jNh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vat-qM-5XG"/>
@@ -86,7 +87,7 @@
                     <connections>
                         <outlet property="menuBackgroundView" destination="9ZI-lm-rFS" id="tGi-Dy-kUp"/>
                         <outlet property="menuView" destination="E49-bO-qqN" id="Tpc-6v-kqZ"/>
-                        <outlet property="menuViewTrailingConstraint" destination="0mr-hi-Exb" id="kUl-fq-HyE"/>
+                        <outlet property="menuViewWidthConstraint" destination="OIE-AM-xIV" id="44r-ZE-bHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SzY-LF-xER" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
