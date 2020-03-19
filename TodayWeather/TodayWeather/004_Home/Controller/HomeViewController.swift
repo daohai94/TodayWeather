@@ -31,12 +31,12 @@ class HomeViewController: UIViewController {
             print("HAIDT - initComponent: MenuViewController is nil")
             return
         }
-        menuVC.closeMenuCallBack = {
-            self.closeMenuView(completion: nil)
+        menuVC.closeMenuCallBack = { [weak self] in
+            self?.closeMenuView(completion: nil)
         }
-        menuVC.openSettingsCallBack = {
-            self.closeMenuView(completion: {
-                self.openSettingsViewController()
+        menuVC.openSettingsCallBack = { [weak self] in
+            self?.closeMenuView(completion: {
+                self?.openSettingsViewController()
             })
         }
         self.addChildVC(intoView: self.menuView, viewController: menuVC)
@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
         self.menuBackgroundView.isHidden = true
         self.menuBackgroundView.isUserInteractionEnabled = false
         self.menuViewWidthConstraint.constant = 0
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: { _ in
             completion?()
