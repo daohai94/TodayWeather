@@ -10,21 +10,22 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    var closeMenuCallBack:(()->())?
+    var openSettingsCallBack:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+   
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func closeMenuButtonTapped(_ sender: Any) {
+        self.closeMenuCallBack?()
     }
-    */
+    @IBAction func openSettingsButtonTapped(_ sender: Any) {
+        self.openSettingsCallBack?()
+    }
+    
 
 }
