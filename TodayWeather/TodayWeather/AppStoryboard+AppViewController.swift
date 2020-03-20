@@ -13,6 +13,7 @@ enum AppStoryboard : String{
     case settings = "Settings"
     case menu = "Menu"
     case home = "Home"
+    case splash = "Splash"
 }
 
 enum AppViewController : String {
@@ -24,4 +25,7 @@ enum AppViewController : String {
     case notificationSettingVC = "NotificationSettingViewController"
     case dataSourceSettingVC = "DataSourceSettingViewController"
     case languageSettingVC = "LanguageSettingViewController"
+    case splashVC = "SplashViewController"
+    case splashScene1VC = "SplashScene1ViewController"
+    case splashScene2VC = "SplashScene2ViewController"
 }

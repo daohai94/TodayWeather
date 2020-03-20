@@ -44,6 +44,10 @@
 		33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */; };
 		33B2D9172424ADDA00F51BB4 /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */; };
 		33B2D9192424AFB300F51BB4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9182424AFB300F51BB4 /* Language.swift */; };
+		33B2D91D2424BFBB00F51BB4 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D91C2424BFBB00F51BB4 /* Splash.storyboard */; };
+		33B2D91F2424C00100F51BB4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D91E2424C00100F51BB4 /* SplashViewController.swift */; };
+		33B2D9212424C80500F51BB4 /* SplashScene1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9202424C80500F51BB4 /* SplashScene1ViewController.swift */; };
+		33B2D9232424C81A00F51BB4 /* SplashScene2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9222424C81A00F51BB4 /* SplashScene2ViewController.swift */; };
 		4E17E86DD3197B1F3D66CE30 /* Pods_TodayWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8680A7E6532C4AB7FF2E2770 /* Pods_TodayWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +91,10 @@
 		33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		33B2D9182424AFB300F51BB4 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		33B2D91C2424BFBB00F51BB4 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		33B2D91E2424C00100F51BB4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		33B2D9202424C80500F51BB4 /* SplashScene1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScene1ViewController.swift; sourceTree = "<group>"; };
+		33B2D9222424C81A00F51BB4 /* SplashScene2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScene2ViewController.swift; sourceTree = "<group>"; };
 		8680A7E6532C4AB7FF2E2770 /* Pods_TodayWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9663E5CC19033CC8B3209ECA /* Pods-TodayWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWeather.release.xcconfig"; path = "Target Support Files/Pods-TodayWeather/Pods-TodayWeather.release.xcconfig"; sourceTree = "<group>"; };
 		FDE2406C3BF0C7D08B6957B0 /* Pods-TodayWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWeather.debug.xcconfig"; path = "Target Support Files/Pods-TodayWeather/Pods-TodayWeather.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +218,8 @@
 		1BC39B2E24226E7D0018FBF1 /* 003_Splash */ = {
 			isa = PBXGroup;
 			children = (
+				33B2D91B2424BF9300F51BB4 /* Controller */,
+				33B2D91A2424BF7400F51BB4 /* Views */,
 			);
 			path = 003_Splash;
 			sourceTree = "<group>";
@@ -259,6 +269,24 @@
 				33B2D90024247D6A00F51BB4 /* NotificationSettingViewController.swift */,
 				33B2D90C24249F2700F51BB4 /* DataSourceSettingViewController.swift */,
 				33B2D9102424ACF800F51BB4 /* LanguageSettingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		33B2D91A2424BF7400F51BB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33B2D91C2424BFBB00F51BB4 /* Splash.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		33B2D91B2424BF9300F51BB4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				33B2D91E2424C00100F51BB4 /* SplashViewController.swift */,
+				33B2D9202424C80500F51BB4 /* SplashScene1ViewController.swift */,
+				33B2D9222424C81A00F51BB4 /* SplashScene2ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -352,6 +380,7 @@
 				33B2D8FD2424633800F51BB4 /* IconSetCell.xib in Resources */,
 				1BDAD63F2423DCC700DE1EEA /* SettingItemNoDescriptionCell.xib in Resources */,
 				1BC39B22242260A70018FBF1 /* Settings.storyboard in Resources */,
+				33B2D91D2424BFBB00F51BB4 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +418,7 @@
 			files = (
 				33B2D90F2424A40800F51BB4 /* DataSource.swift in Sources */,
 				33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */,
+				33B2D9212424C80500F51BB4 /* SplashScene1ViewController.swift in Sources */,
 				1BC39B2D24226AF30018FBF1 /* Extensions.swift in Sources */,
 				1BC39B3024226EE10018FBF1 /* MenuViewController.swift in Sources */,
 				33B2D907242495EA00F51BB4 /* Notification.swift in Sources */,
@@ -396,6 +426,7 @@
 				33B2D90D24249F2700F51BB4 /* DataSourceSettingViewController.swift in Sources */,
 				33B2D90A24249CE200F51BB4 /* DataSourceCell.swift in Sources */,
 				1B88E29224212663007D4753 /* ViewController.swift in Sources */,
+				33B2D91F2424C00100F51BB4 /* SplashViewController.swift in Sources */,
 				1BDAD6372423D90800DE1EEA /* Setting.swift in Sources */,
 				33B2D8FC2424633800F51BB4 /* IconSetCell.swift in Sources */,
 				33B2D90124247D6A00F51BB4 /* NotificationSettingViewController.swift in Sources */,
@@ -403,6 +434,7 @@
 				33A9382324236BE9003C267E /* MenuTableViewCell.swift in Sources */,
 				33B2D8FF24246FC500F51BB4 /* UnitSettingViewController.swift in Sources */,
 				1BDAD6422423DCF200DE1EEA /* SettingItemHasDescriptionCell.swift in Sources */,
+				33B2D9232424C81A00F51BB4 /* SplashScene2ViewController.swift in Sources */,
 				33B2D9112424ACF800F51BB4 /* LanguageSettingViewController.swift in Sources */,
 				33B2D8F7242462D900F51BB4 /* IconSetSettingViewController.swift in Sources */,
 				1BC39B37242271800018FBF1 /* HomeViewController.swift in Sources */,
