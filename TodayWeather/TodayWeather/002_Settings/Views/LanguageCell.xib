@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LanguageCell" rowHeight="108" id="KGk-i7-Jjw" customClass="LanguageCell" customModule="TodayWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-radiobutton-checked" translatesAutoresizingMaskIntoConstraints="NO" id="2G0-6l-SN0">
+                        <rect key="frame" x="16" y="28" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2G0-6l-SN0" secondAttribute="height" multiplier="1:1" id="Qpz-Pi-uyh"/>
+                            <constraint firstAttribute="height" constant="16" id="Syr-r6-j8V"/>
+                            <constraint firstAttribute="width" constant="16" id="lec-pa-vFy"/>
+                        </constraints>
+                    </imageView>
+                    <view alpha="0.47999998927116394" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvm-dv-SLq" userLabel="separator">
+                        <rect key="frame" x="16" y="72" width="288" height="1"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="BGW-lT-2Zb"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3j-SQ-dyM">
+                        <rect key="frame" x="64" y="24" width="39.5" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="VIQ-4u-jkh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2G0-6l-SN0" firstAttribute="centerY" secondItem="e3j-SQ-dyM" secondAttribute="centerY" id="5yh-El-8uU"/>
+                    <constraint firstAttribute="bottom" secondItem="dvm-dv-SLq" secondAttribute="bottom" id="6cH-BU-H8b"/>
+                    <constraint firstItem="dvm-dv-SLq" firstAttribute="top" secondItem="e3j-SQ-dyM" secondAttribute="bottom" constant="24" id="D90-u4-LrS"/>
+                    <constraint firstItem="e3j-SQ-dyM" firstAttribute="leading" secondItem="2G0-6l-SN0" secondAttribute="trailing" constant="32" id="G2Q-dx-djb"/>
+                    <constraint firstItem="2G0-6l-SN0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="SJ4-04-iCt"/>
+                    <constraint firstItem="dvm-dv-SLq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Si8-XN-O5l"/>
+                    <constraint firstAttribute="trailing" secondItem="dvm-dv-SLq" secondAttribute="trailing" constant="16" id="TJT-0s-dNZ"/>
+                    <constraint firstItem="e3j-SQ-dyM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="sZi-rG-KxK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgRadiobutton" destination="2G0-6l-SN0" id="T3R-tB-lmj"/>
+                <outlet property="lblLanguageName" destination="e3j-SQ-dyM" id="uYb-fH-RY2"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="149.33035714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon-radiobutton-checked" width="16" height="16"/>
+    </resources>
+</document>

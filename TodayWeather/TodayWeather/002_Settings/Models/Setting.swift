@@ -9,11 +9,11 @@
 import Foundation
 
 struct Setting {
-    var item:SettingItems
+    var name:SettingName
     var description:String
 }
 
-enum SettingItems : String {
+enum SettingName : String {
     case picture = "Picture"
     case iconSet = "Icon Set"
     case unit = "Units"

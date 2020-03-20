@@ -18,23 +18,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.47999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-K5-hLc">
-                        <rect key="frame" x="16" y="56" width="327" height="1"/>
+                        <rect key="frame" x="16" y="64" width="327" height="1"/>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="LK0-Oc-bCT"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRN-EY-1hN">
-                        <rect key="frame" x="16" y="24" width="40" height="16"/>
+                        <rect key="frame" x="16" y="24" width="40" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="4Cs-QM-yXp"/>
+                            <constraint firstAttribute="height" constant="24" id="4Cs-QM-yXp"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-W1-R30">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="64"/>
                     </button>
                 </subviews>
                 <constraints>
