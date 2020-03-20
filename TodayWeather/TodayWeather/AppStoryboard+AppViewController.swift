@@ -19,4 +19,9 @@ enum AppViewController : String {
     case settingsVC = "SettingsViewController"
     case menuVC = "MenuViewController"
     case homeVC = "HomeViewController"
+    case iconSetSettingVC = "IconSetSettingViewController"
+    case unitSettingVC = "UnitSettingViewController"
+    case notificationSettingVC = "NotificationSettingViewController"
+    case dataSourceSettingVC = "DataSourceSettingViewController"
+    case languageSettingVC = "LanguageSettingViewController"
 }

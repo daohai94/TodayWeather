@@ -28,6 +28,22 @@
 		338B0EEB24235C73005796BE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338B0EEA24235C73005796BE /* SettingsViewController.swift */; };
 		33A9382324236BE9003C267E /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A9382124236BE9003C267E /* MenuTableViewCell.swift */; };
 		33A9382424236BE9003C267E /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33A9382224236BE9003C267E /* MenuTableViewCell.xib */; };
+		33B2D8F7242462D900F51BB4 /* IconSetSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D8F6242462D900F51BB4 /* IconSetSettingViewController.swift */; };
+		33B2D8FC2424633800F51BB4 /* IconSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D8FA2424633800F51BB4 /* IconSetCell.swift */; };
+		33B2D8FD2424633800F51BB4 /* IconSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D8FB2424633800F51BB4 /* IconSetCell.xib */; };
+		33B2D8FF24246FC500F51BB4 /* UnitSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D8FE24246FC500F51BB4 /* UnitSettingViewController.swift */; };
+		33B2D90124247D6A00F51BB4 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90024247D6A00F51BB4 /* NotificationSettingViewController.swift */; };
+		33B2D90424247FAB00F51BB4 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90224247FAB00F51BB4 /* NotificationCell.swift */; };
+		33B2D90524247FAB00F51BB4 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D90324247FAB00F51BB4 /* NotificationCell.xib */; };
+		33B2D907242495EA00F51BB4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D906242495EA00F51BB4 /* Notification.swift */; };
+		33B2D90A24249CE200F51BB4 /* DataSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90824249CE200F51BB4 /* DataSourceCell.swift */; };
+		33B2D90B24249CE200F51BB4 /* DataSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D90924249CE200F51BB4 /* DataSourceCell.xib */; };
+		33B2D90D24249F2700F51BB4 /* DataSourceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90C24249F2700F51BB4 /* DataSourceSettingViewController.swift */; };
+		33B2D90F2424A40800F51BB4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90E2424A40800F51BB4 /* DataSource.swift */; };
+		33B2D9112424ACF800F51BB4 /* LanguageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9102424ACF800F51BB4 /* LanguageSettingViewController.swift */; };
+		33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */; };
+		33B2D9172424ADDA00F51BB4 /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */; };
+		33B2D9192424AFB300F51BB4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9182424AFB300F51BB4 /* Language.swift */; };
 		4E17E86DD3197B1F3D66CE30 /* Pods_TodayWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8680A7E6532C4AB7FF2E2770 /* Pods_TodayWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +71,22 @@
 		338B0EEA24235C73005796BE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		33A9382124236BE9003C267E /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		33A9382224236BE9003C267E /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		33B2D8F6242462D900F51BB4 /* IconSetSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSetSettingViewController.swift; sourceTree = "<group>"; };
+		33B2D8FA2424633800F51BB4 /* IconSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSetCell.swift; sourceTree = "<group>"; };
+		33B2D8FB2424633800F51BB4 /* IconSetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconSetCell.xib; sourceTree = "<group>"; };
+		33B2D8FE24246FC500F51BB4 /* UnitSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettingViewController.swift; sourceTree = "<group>"; };
+		33B2D90024247D6A00F51BB4 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+		33B2D90224247FAB00F51BB4 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		33B2D90324247FAB00F51BB4 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
+		33B2D906242495EA00F51BB4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		33B2D90824249CE200F51BB4 /* DataSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceCell.swift; sourceTree = "<group>"; };
+		33B2D90924249CE200F51BB4 /* DataSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSourceCell.xib; sourceTree = "<group>"; };
+		33B2D90C24249F2700F51BB4 /* DataSourceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSettingViewController.swift; sourceTree = "<group>"; };
+		33B2D90E2424A40800F51BB4 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		33B2D9102424ACF800F51BB4 /* LanguageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingViewController.swift; sourceTree = "<group>"; };
+		33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
+		33B2D9182424AFB300F51BB4 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		8680A7E6532C4AB7FF2E2770 /* Pods_TodayWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9663E5CC19033CC8B3209ECA /* Pods-TodayWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWeather.release.xcconfig"; path = "Target Support Files/Pods-TodayWeather/Pods-TodayWeather.release.xcconfig"; sourceTree = "<group>"; };
 		FDE2406C3BF0C7D08B6957B0 /* Pods-TodayWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWeather.debug.xcconfig"; path = "Target Support Files/Pods-TodayWeather/Pods-TodayWeather.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +160,14 @@
 				1BDAD63D2423DCC700DE1EEA /* SettingItemNoDescriptionCell.xib */,
 				1BDAD6402423DCF200DE1EEA /* SettingItemHasDescriptionCell.swift */,
 				1BDAD6412423DCF200DE1EEA /* SettingItemHasDescriptionCell.xib */,
+				33B2D8FA2424633800F51BB4 /* IconSetCell.swift */,
+				33B2D8FB2424633800F51BB4 /* IconSetCell.xib */,
+				33B2D90224247FAB00F51BB4 /* NotificationCell.swift */,
+				33B2D90324247FAB00F51BB4 /* NotificationCell.xib */,
+				33B2D90824249CE200F51BB4 /* DataSourceCell.swift */,
+				33B2D90924249CE200F51BB4 /* DataSourceCell.xib */,
+				33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */,
+				33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +243,9 @@
 			isa = PBXGroup;
 			children = (
 				1BDAD6362423D90800DE1EEA /* Setting.swift */,
+				33B2D906242495EA00F51BB4 /* Notification.swift */,
+				33B2D90E2424A40800F51BB4 /* DataSource.swift */,
+				33B2D9182424AFB300F51BB4 /* Language.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +254,11 @@
 			isa = PBXGroup;
 			children = (
 				338B0EEA24235C73005796BE /* SettingsViewController.swift */,
+				33B2D8F6242462D900F51BB4 /* IconSetSettingViewController.swift */,
+				33B2D8FE24246FC500F51BB4 /* UnitSettingViewController.swift */,
+				33B2D90024247D6A00F51BB4 /* NotificationSettingViewController.swift */,
+				33B2D90C24249F2700F51BB4 /* DataSourceSettingViewController.swift */,
+				33B2D9102424ACF800F51BB4 /* LanguageSettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,13 +339,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B2D90524247FAB00F51BB4 /* NotificationCell.xib in Resources */,
 				1BC39B2A2422657A0018FBF1 /* Menu.storyboard in Resources */,
 				33A9382424236BE9003C267E /* MenuTableViewCell.xib in Resources */,
 				1BDAD6432423DCF200DE1EEA /* SettingItemHasDescriptionCell.xib in Resources */,
 				1B88E29D24212663007D4753 /* LaunchScreen.storyboard in Resources */,
+				33B2D9172424ADDA00F51BB4 /* LanguageCell.xib in Resources */,
 				1B88E29A24212663007D4753 /* Assets.xcassets in Resources */,
+				33B2D90B24249CE200F51BB4 /* DataSourceCell.xib in Resources */,
 				1BC39B352422707F0018FBF1 /* Home.storyboard in Resources */,
 				1B88E29524212663007D4753 /* Main.storyboard in Resources */,
+				33B2D8FD2424633800F51BB4 /* IconSetCell.xib in Resources */,
 				1BDAD63F2423DCC700DE1EEA /* SettingItemNoDescriptionCell.xib in Resources */,
 				1BC39B22242260A70018FBF1 /* Settings.storyboard in Resources */,
 			);
@@ -335,18 +387,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B2D90F2424A40800F51BB4 /* DataSource.swift in Sources */,
+				33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */,
 				1BC39B2D24226AF30018FBF1 /* Extensions.swift in Sources */,
 				1BC39B3024226EE10018FBF1 /* MenuViewController.swift in Sources */,
+				33B2D907242495EA00F51BB4 /* Notification.swift in Sources */,
 				1BC39B25242260C90018FBF1 /* AppStoryboard+AppViewController.swift in Sources */,
+				33B2D90D24249F2700F51BB4 /* DataSourceSettingViewController.swift in Sources */,
+				33B2D90A24249CE200F51BB4 /* DataSourceCell.swift in Sources */,
 				1B88E29224212663007D4753 /* ViewController.swift in Sources */,
 				1BDAD6372423D90800DE1EEA /* Setting.swift in Sources */,
+				33B2D8FC2424633800F51BB4 /* IconSetCell.swift in Sources */,
+				33B2D90124247D6A00F51BB4 /* NotificationSettingViewController.swift in Sources */,
 				1B88E28E24212663007D4753 /* AppDelegate.swift in Sources */,
 				33A9382324236BE9003C267E /* MenuTableViewCell.swift in Sources */,
+				33B2D8FF24246FC500F51BB4 /* UnitSettingViewController.swift in Sources */,
 				1BDAD6422423DCF200DE1EEA /* SettingItemHasDescriptionCell.swift in Sources */,
+				33B2D9112424ACF800F51BB4 /* LanguageSettingViewController.swift in Sources */,
+				33B2D8F7242462D900F51BB4 /* IconSetSettingViewController.swift in Sources */,
 				1BC39B37242271800018FBF1 /* HomeViewController.swift in Sources */,
 				1B88E29824212663007D4753 /* TodayWeather.xcdatamodeld in Sources */,
 				338B0EEB24235C73005796BE /* SettingsViewController.swift in Sources */,
+				33B2D9192424AFB300F51BB4 /* Language.swift in Sources */,
 				1BDAD63E2423DCC700DE1EEA /* SettingItemNoDescriptionCell.swift in Sources */,
+				33B2D90424247FAB00F51BB4 /* NotificationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

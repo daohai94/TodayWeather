@@ -21,14 +21,14 @@ class SettingsViewController: UIViewController {
     }
     
     func initSettingItems() {
-        self.settings.append(Setting(item: .picture, description: "On"))
-        self.settings.append(Setting(item: .iconSet, description: ""))
-        self.settings.append(Setting(item: .unit, description: ""))
-        self.settings.append(Setting(item: .notification, description: ""))
-        self.settings.append(Setting(item: .dataSource, description: "Weatherbit.io"))
-        self.settings.append(Setting(item: .yourName, description: "Haipro"))
-        self.settings.append(Setting(item: .language, description: "English"))
-        self.settings.append(Setting(item: .version, description: "v1.0"))
+        self.settings.append(Setting(name: .picture, description: "On"))
+        self.settings.append(Setting(name: .iconSet, description: ""))
+        self.settings.append(Setting(name: .unit, description: ""))
+        self.settings.append(Setting(name: .notification, description: ""))
+        self.settings.append(Setting(name: .dataSource, description: "Weatherbit.io"))
+        self.settings.append(Setting(name: .yourName, description: "Haipro"))
+        self.settings.append(Setting(name: .language, description: "English"))
+        self.settings.append(Setting(name: .version, description: "v1.0"))
     }
     
     func initComponent() {
@@ -46,32 +46,62 @@ class SettingsViewController: UIViewController {
     
 
     @objc func settingItemTapped(_ sender:UIButton){
-        self.openSettingItemViewController(setting: self.settings[sender.tag])
+        self.openSettingItemView(setting: self.settings[sender.tag])
     }
     
-    func openSettingItemViewController(setting:Setting) {
-        switch setting.item {
+    func openSettingItemView(setting:Setting) {
+        switch setting.name {
         case .iconSet:
             print("HAIDT - open setting iconSet")
+            let iconSetSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.iconSetSettingVC.rawValue) as! IconSetSettingViewController
+            self.navigationController?.pushViewController(iconSetSettingVC, animated: true)
             break
         case .unit:
            print("HAIDT - open setting unit")
+           let unitSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.unitSettingVC.rawValue) as! UnitSettingViewController
+           self.navigationController?.pushViewController(unitSettingVC, animated: true)
             break
         case .notification:
             print("HAIDT - open setting notification")
+            let notificationSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.notificationSettingVC.rawValue) as! NotificationSettingViewController
+            self.navigationController?.pushViewController(notificationSettingVC, animated: true)
             break
         case .dataSource:
             print("HAIDT - open setting dataSource")
+            let dataSourceSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.dataSourceSettingVC.rawValue) as! DataSourceSettingViewController
+            self.navigationController?.pushViewController(dataSourceSettingVC, animated: true)
             break
         case .yourName:
             print("HAIDT - open setting yourName")
+            self.openNameSettingPopup()
             break
         case .language:
             print("HAIDT - open setting language")
+            let languageSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.languageSettingVC.rawValue) as! LanguageSettingViewController
+            self.navigationController?.pushViewController(languageSettingVC, animated: true)
             break
         default:
             break
         }
+    }
+    
+    func openNameSettingPopup() {
+        let alertInputName = UIAlertController(title: "Your Name", message: "", preferredStyle: .alert)
+
+        // cancel button
+        alertInputName.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        
+        // OK button
+        alertInputName.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+           
+        }))
+        
+        // Text field
+        alertInputName.addTextField(configurationHandler: { textField in
+            textField.text = "Haipro"
+            textField.placeholder = "Your Name"
+        })
+        self.present(alertInputName, animated: true, completion: nil)
     }
     
     @IBAction func closeSettingsButtonTapped(_ sender: Any) {
@@ -88,7 +118,7 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch self.settings[indexPath.row].item {
+        switch self.settings[indexPath.row].name {
         case .iconSet,.unit,.notification:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SettingItemNoDescriptionCell", for: indexPath) as! SettingItemNoDescriptionCell
             cell.btnSettingItem.tag = indexPath.row

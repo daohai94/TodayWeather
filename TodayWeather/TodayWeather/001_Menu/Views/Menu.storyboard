@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0R-9R-CmW">
-                                        <rect key="frame" x="16" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="4" y="5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="ALL-rZ-VMo"/>
                                             <constraint firstAttribute="height" constant="40" id="hxW-8F-ZkW"/>
@@ -58,7 +58,7 @@
                                     <constraint firstItem="qGU-n0-3SP" firstAttribute="centerY" secondItem="Zzq-9u-mAa" secondAttribute="centerY" id="LoL-2Q-MvH"/>
                                     <constraint firstAttribute="height" constant="50" id="MnB-06-r0I"/>
                                     <constraint firstItem="scl-4m-yH1" firstAttribute="centerY" secondItem="Zzq-9u-mAa" secondAttribute="centerY" id="o40-yv-Taz"/>
-                                    <constraint firstItem="W0R-9R-CmW" firstAttribute="leading" secondItem="Zzq-9u-mAa" secondAttribute="leading" constant="16" id="vwL-G0-sAb"/>
+                                    <constraint firstItem="W0R-9R-CmW" firstAttribute="leading" secondItem="Zzq-9u-mAa" secondAttribute="leading" constant="4" id="vwL-G0-sAb"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pQY-6T-lJH">

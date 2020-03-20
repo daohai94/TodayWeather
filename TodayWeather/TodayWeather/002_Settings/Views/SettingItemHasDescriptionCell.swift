@@ -26,9 +26,9 @@ class SettingItemHasDescriptionCell: UITableViewCell {
     }
     
     func setUp(setting:Setting) {
-        lblSettingItemName.text = setting.item.rawValue
+        lblSettingItemName.text = setting.name.rawValue
         lblSettingItemDescription.text = setting.description
-        if setting.item == .picture {
+        if setting.name == .picture {
             btnSettingItem.isHidden = true
             btnSettingItem.isUserInteractionEnabled = false
             switchSetting.isHidden = false
