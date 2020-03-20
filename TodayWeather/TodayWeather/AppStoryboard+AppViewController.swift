@@ -28,4 +28,7 @@ enum AppViewController : String {
     case splashVC = "SplashViewController"
     case splashScene1VC = "SplashScene1ViewController"
     case splashScene2VC = "SplashScene2ViewController"
+    case addLocationVC = "AddLocationViewController"
+    case tenDaysWeatherVC = "TenDaysWeatherViewController"
+    case thirtySixHoursWeatherVC = "ThirtySixHoursWeatherViewController"
 }

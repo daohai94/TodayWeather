@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4E750824250ED6001B42AF /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E750724250ED6001B42AF /* AddLocationViewController.swift */; };
+		1B4E750A2425127F001B42AF /* TenDaysWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E75092425127F001B42AF /* TenDaysWeatherViewController.swift */; };
+		1B4E750C24251302001B42AF /* ThirtySixHoursWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E750B24251302001B42AF /* ThirtySixHoursWeatherViewController.swift */; };
+		1B4E750F24251360001B42AF /* DayWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E750D24251360001B42AF /* DayWeatherCell.swift */; };
+		1B4E751024251360001B42AF /* DayWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B4E750E24251360001B42AF /* DayWeatherCell.xib */; };
+		1B4E75132425171D001B42AF /* HourWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E75112425171D001B42AF /* HourWeatherCell.swift */; };
+		1B4E75142425171D001B42AF /* HourWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B4E75122425171D001B42AF /* HourWeatherCell.xib */; };
 		1B88E28E24212663007D4753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B88E28D24212663007D4753 /* AppDelegate.swift */; };
 		1B88E29224212663007D4753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B88E29124212663007D4753 /* ViewController.swift */; };
 		1B88E29524212663007D4753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B88E29324212663007D4753 /* Main.storyboard */; };
@@ -52,6 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4E750724250ED6001B42AF /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		1B4E75092425127F001B42AF /* TenDaysWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysWeatherViewController.swift; sourceTree = "<group>"; };
+		1B4E750B24251302001B42AF /* ThirtySixHoursWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirtySixHoursWeatherViewController.swift; sourceTree = "<group>"; };
+		1B4E750D24251360001B42AF /* DayWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeatherCell.swift; sourceTree = "<group>"; };
+		1B4E750E24251360001B42AF /* DayWeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayWeatherCell.xib; sourceTree = "<group>"; };
+		1B4E75112425171D001B42AF /* HourWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourWeatherCell.swift; sourceTree = "<group>"; };
+		1B4E75122425171D001B42AF /* HourWeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourWeatherCell.xib; sourceTree = "<group>"; };
 		1B88E28A24212663007D4753 /* TodayWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B88E28D24212663007D4753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B88E29124212663007D4753 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				1BC39B2F24226EE10018FBF1 /* MenuViewController.swift */,
+				1B4E750724250ED6001B42AF /* AddLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,6 +252,10 @@
 			isa = PBXGroup;
 			children = (
 				1BC39B342422707F0018FBF1 /* Home.storyboard */,
+				1B4E750D24251360001B42AF /* DayWeatherCell.swift */,
+				1B4E750E24251360001B42AF /* DayWeatherCell.xib */,
+				1B4E75112425171D001B42AF /* HourWeatherCell.swift */,
+				1B4E75122425171D001B42AF /* HourWeatherCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				1BC39B36242271800018FBF1 /* HomeViewController.swift */,
+				1B4E75092425127F001B42AF /* TenDaysWeatherViewController.swift */,
+				1B4E750B24251302001B42AF /* ThirtySixHoursWeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -369,10 +390,12 @@
 			files = (
 				33B2D90524247FAB00F51BB4 /* NotificationCell.xib in Resources */,
 				1BC39B2A2422657A0018FBF1 /* Menu.storyboard in Resources */,
+				1B4E75142425171D001B42AF /* HourWeatherCell.xib in Resources */,
 				33A9382424236BE9003C267E /* MenuTableViewCell.xib in Resources */,
 				1BDAD6432423DCF200DE1EEA /* SettingItemHasDescriptionCell.xib in Resources */,
 				1B88E29D24212663007D4753 /* LaunchScreen.storyboard in Resources */,
 				33B2D9172424ADDA00F51BB4 /* LanguageCell.xib in Resources */,
+				1B4E751024251360001B42AF /* DayWeatherCell.xib in Resources */,
 				1B88E29A24212663007D4753 /* Assets.xcassets in Resources */,
 				33B2D90B24249CE200F51BB4 /* DataSourceCell.xib in Resources */,
 				1BC39B352422707F0018FBF1 /* Home.storyboard in Resources */,
@@ -418,7 +441,11 @@
 			files = (
 				33B2D90F2424A40800F51BB4 /* DataSource.swift in Sources */,
 				33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */,
+				1B4E750C24251302001B42AF /* ThirtySixHoursWeatherViewController.swift in Sources */,
+				1B4E750F24251360001B42AF /* DayWeatherCell.swift in Sources */,
+				1B4E750A2425127F001B42AF /* TenDaysWeatherViewController.swift in Sources */,
 				33B2D9212424C80500F51BB4 /* SplashScene1ViewController.swift in Sources */,
+				1B4E750824250ED6001B42AF /* AddLocationViewController.swift in Sources */,
 				1BC39B2D24226AF30018FBF1 /* Extensions.swift in Sources */,
 				1BC39B3024226EE10018FBF1 /* MenuViewController.swift in Sources */,
 				33B2D907242495EA00F51BB4 /* Notification.swift in Sources */,
@@ -442,6 +469,7 @@
 				338B0EEB24235C73005796BE /* SettingsViewController.swift in Sources */,
 				33B2D9192424AFB300F51BB4 /* Language.swift in Sources */,
 				1BDAD63E2423DCC700DE1EEA /* SettingItemNoDescriptionCell.swift in Sources */,
+				1B4E75132425171D001B42AF /* HourWeatherCell.swift in Sources */,
 				33B2D90424247FAB00F51BB4 /* NotificationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
