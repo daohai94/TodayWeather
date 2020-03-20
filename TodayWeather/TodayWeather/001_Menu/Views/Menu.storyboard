@@ -37,6 +37,9 @@
                                             <constraint firstAttribute="width" constant="40" id="jdI-Rw-Nr9"/>
                                         </constraints>
                                         <state key="normal" image="icon-plus"/>
+                                        <connections>
+                                            <action selector="addLocationButtonTapped:" destination="yPN-Vz-696" eventType="touchUpInside" id="Pei-Mw-Zky"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scl-4m-yH1" userLabel="btnSetting">
                                         <rect key="frame" x="319" y="5" width="40" height="40"/>
@@ -86,81 +89,71 @@
             </objects>
             <point key="canvasLocation" x="93.599999999999994" y="140.77961019490255"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="aL4-qu-N7b">
             <objects>
-                <viewController id="7uX-JS-q1H" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationViewController" id="7uX-JS-q1H" customClass="AddLocationViewController" customModule="TodayWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jx3-KE-Vmt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ABC" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7R-q3-r2j">
-                                <rect key="frame" x="16" y="100" width="343" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7R-q3-r2j">
+                                <rect key="frame" x="16" y="24" width="277" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.94901960780000005" green="0.70588235290000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8Qe-Sj-bZj"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqA-Ry-FLc">
-                                <rect key="frame" x="16" y="130" width="343" height="1"/>
-                                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVM-n0-ne8">
+                                <rect key="frame" x="309" y="19" width="50" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="K5l-8d-DSQ"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name and start using" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpC-aF-dyf">
-                                <rect key="frame" x="16" y="139" width="343" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="rTA-ot-csL"/>
+                                    <constraint firstAttribute="width" constant="50" id="Bza-CW-Qko"/>
+                                    <constraint firstAttribute="height" constant="40" id="REC-gX-INU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwW-F5-qms">
-                                <rect key="frame" x="165.5" y="203" width="44" height="44"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.70588235290000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="2nU-Nh-Lcd"/>
-                                    <constraint firstAttribute="height" constant="44" id="Kja-oc-YR3"/>
-                                </constraints>
-                                <state key="normal" image="icon-chevron-right-yellow"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="7uX-JS-q1H" eventType="touchUpInside" id="vtJ-8o-cZi"/>
+                                </connections>
                             </button>
+                            <view alpha="0.47999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERF-rP-mnn">
+                                <rect key="frame" x="16" y="54" width="277" height="1"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="TOq-ji-vcT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bpC-aF-dyf" firstAttribute="leading" secondItem="6sQ-sK-fw0" secondAttribute="leading" constant="16" id="1OP-To-brg"/>
-                            <constraint firstItem="GwW-F5-qms" firstAttribute="centerX" secondItem="Jx3-KE-Vmt" secondAttribute="centerX" id="1W3-sq-IlW"/>
-                            <constraint firstItem="GwW-F5-qms" firstAttribute="top" secondItem="bpC-aF-dyf" secondAttribute="bottom" constant="40" id="CZx-cf-JgP"/>
-                            <constraint firstItem="6sQ-sK-fw0" firstAttribute="trailing" secondItem="jqA-Ry-FLc" secondAttribute="trailing" constant="16" id="Q4M-tQ-cRt"/>
+                            <constraint firstItem="JVM-n0-ne8" firstAttribute="centerY" secondItem="M7R-q3-r2j" secondAttribute="centerY" id="FMr-QB-izb"/>
+                            <constraint firstItem="ERF-rP-mnn" firstAttribute="leading" secondItem="M7R-q3-r2j" secondAttribute="leading" id="GaM-ZU-Ofr"/>
+                            <constraint firstItem="6sQ-sK-fw0" firstAttribute="trailing" secondItem="JVM-n0-ne8" secondAttribute="trailing" constant="16" id="Oxa-rn-lhN"/>
                             <constraint firstItem="M7R-q3-r2j" firstAttribute="leading" secondItem="6sQ-sK-fw0" secondAttribute="leading" constant="16" id="QN3-3Q-E7r"/>
-                            <constraint firstItem="M7R-q3-r2j" firstAttribute="top" secondItem="6sQ-sK-fw0" secondAttribute="top" constant="100" id="QPj-ig-Hr7"/>
-                            <constraint firstItem="jqA-Ry-FLc" firstAttribute="leading" secondItem="6sQ-sK-fw0" secondAttribute="leading" constant="16" id="R4a-MW-xqM"/>
-                            <constraint firstItem="6sQ-sK-fw0" firstAttribute="trailing" secondItem="M7R-q3-r2j" secondAttribute="trailing" constant="16" id="U5T-rI-kkk"/>
-                            <constraint firstItem="jqA-Ry-FLc" firstAttribute="top" secondItem="M7R-q3-r2j" secondAttribute="bottom" id="X7T-ZY-Our"/>
-                            <constraint firstItem="6sQ-sK-fw0" firstAttribute="trailing" secondItem="bpC-aF-dyf" secondAttribute="trailing" constant="16" id="ls3-Hn-xhS"/>
-                            <constraint firstItem="bpC-aF-dyf" firstAttribute="top" secondItem="jqA-Ry-FLc" secondAttribute="bottom" constant="8" id="qPS-1E-hPc"/>
+                            <constraint firstItem="M7R-q3-r2j" firstAttribute="top" secondItem="6sQ-sK-fw0" secondAttribute="top" constant="24" id="QPj-ig-Hr7"/>
+                            <constraint firstItem="JVM-n0-ne8" firstAttribute="leading" secondItem="M7R-q3-r2j" secondAttribute="trailing" constant="16" id="Ywe-Tu-tNx"/>
+                            <constraint firstItem="ERF-rP-mnn" firstAttribute="top" secondItem="M7R-q3-r2j" secondAttribute="bottom" id="bnB-mU-fwo"/>
+                            <constraint firstItem="ERF-rP-mnn" firstAttribute="trailing" secondItem="M7R-q3-r2j" secondAttribute="trailing" id="d1y-sw-e6F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6sQ-sK-fw0"/>
                     </view>
+                    <connections>
+                        <outlet property="tfLocation" destination="M7R-q3-r2j" id="FD6-pA-B4x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCG-fZ-6pm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="142"/>
+            <point key="canvasLocation" x="993" y="140"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon-arrow-left" width="20" height="20"/>
-        <image name="icon-chevron-right-yellow" width="24" height="24"/>
         <image name="icon-plus" width="20" height="20"/>
         <image name="icon-settings" width="20" height="20"/>
     </resources>
