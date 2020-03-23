@@ -8,33 +8,32 @@
 
 import UIKit
 
-//struct UserSetting {
-//    var isEnabledPicture:Bool
-//    var iconSet:IconSet
-//    var temperatureUnit:TemperatureUnit
-//    var distanceInit:DistanceUnit
-//    var speedUnit:SpeedUnit
-//    var pressureUnit:PressureUnit
-//    var isEnabledDailyNotification:Bool
-//    var timeNotification:Date
-//    var isEnabledSevereAlert:Bool
-//    var isEnabledRainSnowAlarm:Bool
-//    var dataSource:DataSourceSetting
-//    var userName:String
-//    var language:Language
-//}
+struct UserSetting {
+    var id:Int64
+    var isEnabledPicture:Bool
+    var iconSetIndex:Int64
+    var temperatureUnit:String
+    var distanceInit:String
+    var speedUnit:String
+    var pressureUnit:String
+    var isEnabledDailyNotification:Bool
+    var timeNotification:Date
+    var isEnabledSevereAlert:Bool
+    var isEnabledRainSnowAlarm:Bool
+    var dataSource:String
+    var userName:String
+    var language:String
+}
 
-struct UserLocation {
+struct City {
     var lat:CGFloat
     var long:CGFloat
     var cityName:String
+    var cityId:String
+    var countryName:String
 }
 
 
-//struct IconSet {
-//    var id:Int
-//    var name:String
-//}
 
 enum TemperatureUnit : String {
     case C = "°C"

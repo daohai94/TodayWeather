@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
 
 class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        UserSettingManager.shared.deleteAll()
         self.initComponent()
         self.checkUserSetting()
     }
@@ -24,8 +22,9 @@ class LaunchViewController: UIViewController {
     }
 
     func checkUserSetting() {
-        let userSetting = UserSettingManager.shared.getUserSetting()
-        if userSetting.userName == nil {
+        let userSetting = UserSettingStoreManager().getUserSetting(byId: 1)
+        print("userSetting: \(userSetting)")
+        if userSetting.userName == "" {
             self.openSplashView()
         }else {
             print("user: \(userSetting)")

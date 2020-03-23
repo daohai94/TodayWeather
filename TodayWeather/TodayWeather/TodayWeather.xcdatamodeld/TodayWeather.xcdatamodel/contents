@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="UserSettingStore" representedClassName="UserSettingStore" syncable="YES">
+        <attribute name="dataSource" optional="YES" attributeType="String"/>
+        <attribute name="distanceInit" optional="YES" attributeType="String"/>
+        <attribute name="iconSetIndex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isEnabledDailyNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isEnabledPicture" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isEnabledRainSnowAlarm" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isEnabledSevereAlert" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="language" optional="YES" attributeType="String"/>
+        <attribute name="pressureUnit" optional="YES" attributeType="String"/>
+        <attribute name="speedUnit" optional="YES" attributeType="String"/>
+        <attribute name="temperatureUnit" optional="YES" attributeType="String"/>
+        <attribute name="timeNotification" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="UserSettingStore" positionX="-63" positionY="-18" width="128" height="28"/>
+    </elements>
 </model>
