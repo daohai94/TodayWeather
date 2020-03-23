@@ -340,6 +340,7 @@
 				1B88E28624212663007D4753 /* Sources */,
 				1B88E28724212663007D4753 /* Frameworks */,
 				1B88E28824212663007D4753 /* Resources */,
+				48EBA4CAA13725F15BC57ACB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,6 +411,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		48EBA4CAA13725F15BC57ACB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodayWeather/Pods-TodayWeather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodayWeather/Pods-TodayWeather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodayWeather/Pods-TodayWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		91C3D8A09ED405A2D32409A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
