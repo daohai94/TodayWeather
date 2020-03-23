@@ -24,7 +24,7 @@ class NotificationCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUp(notification:Notification) {
+    func setUp(notification:NotificationSetting) {
         lblNotificationName.text = notification.name.rawValue
         lblNotificationDescription.text = notification.description
         if notification.name == .time {

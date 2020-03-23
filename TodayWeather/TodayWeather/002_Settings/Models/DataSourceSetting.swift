@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DataSource {
+struct DataSourceSetting {
     var name:String
     var description:String
     var currentTemperature:Int

@@ -12,7 +12,7 @@ class NotificationSettingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var notifications:[Notification] = []
+    var notifications:[NotificationSetting] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,10 +21,10 @@ class NotificationSettingViewController: UIViewController {
     }
     
     func initNotificationItems() {
-        self.notifications.append(Notification(name: .daily, description: "On"))
-        self.notifications.append(Notification(name: .time, description: "8:00 AM"))
-        self.notifications.append(Notification(name: .severeAlert, description: "On"))
-        self.notifications.append(Notification(name: .rainAndSnowAlarm, description: "Alerts you when rain, snow is approaching"))
+        self.notifications.append(NotificationSetting(name: .daily, description: "On"))
+        self.notifications.append(NotificationSetting(name: .time, description: "8:00 AM"))
+        self.notifications.append(NotificationSetting(name: .severeAlert, description: "On"))
+        self.notifications.append(NotificationSetting(name: .rainAndSnowAlarm, description: "Alerts you when rain, snow is approaching"))
     }
     
     

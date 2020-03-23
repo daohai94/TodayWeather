@@ -31,4 +31,5 @@ enum AppViewController : String {
     case addLocationVC = "AddLocationViewController"
     case tenDaysWeatherVC = "TenDaysWeatherViewController"
     case thirtySixHoursWeatherVC = "ThirtySixHoursWeatherViewController"
+    case launchVC = "LaunchViewController"
 }

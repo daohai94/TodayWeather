@@ -10,13 +10,69 @@ import UIKit
 
 class SplashScene2ViewController: UIViewController {
 
+    @IBOutlet weak var tfUserName: UITextField!
+    var inputCompleteCallback:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        initComponent()
     }
     
-
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        tfUserName.text = ""
+        self.view.endEditing(true)
+    }
+    
+    func initComponent() {
+        tfUserName.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyBoard(_:)))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func validateTextField() {
+        let str = tfUserName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if str?.count ?? 0 < 1 {
+            self.alertValidateTextField()
+        }
+        else{
+            self.updateUserSetting()
+            self.inputCompleteCallback?()
+        }
+    }
+    
+    func alertValidateTextField() {
+        let alert = UIAlertController(title: "Warning", message: "Input name must at least 1 character", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func updateUserSetting() {
+        let currentUserSetting = UserSettingManager.shared.getUserSetting()
+        var userSetting = UserSetting()
+        userSetting.id.value = 1
+        userSetting.userName = tfUserName.text
+        UserSettingManager.shared.updateUserSetting(userSetting: userSetting)
+        AppManager.currentUserSetting = UserSettingManager.shared.getUserSetting()
+    }
+    
+    
+    
+    @objc func dismissKeyBoard(_ tap:UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        self.validateTextField()
+    }
+    
+    
     
 
+}
+
+extension SplashScene2ViewController:UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+    }
 }

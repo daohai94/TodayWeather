@@ -6,6 +6,6 @@ target 'TodayWeather' do
   use_frameworks!
 
   # Pods for TodayWeather
-pod 'Alamofire'
-
+pod 'Alamofire','5.0.4'
+pod 'RealmSwift','4.3.2'
 end

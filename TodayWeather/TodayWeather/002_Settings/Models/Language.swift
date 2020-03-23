@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct Language {
+struct LanguageSetting {
     var name:String
-    var type:LanguageType
-}
-
-enum LanguageType {
-    case defaultLanguage
-    case vietnamese
-    case english
 }

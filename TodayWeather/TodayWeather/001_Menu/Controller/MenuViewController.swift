@@ -69,10 +69,16 @@ extension MenuViewController:UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
         cell.btnOption.tag = indexPath.row
         cell.btnOption.addTarget(self, action: #selector(self.optionsButtonTapped(_:)), for: .touchUpInside)
+        cell.selectionStyle = .none
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt: \(indexPath.row)")
     }
     
     
