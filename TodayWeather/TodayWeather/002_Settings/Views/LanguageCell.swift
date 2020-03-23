@@ -23,7 +23,7 @@ class LanguageCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUp(language:Language) {
+    func setUp(language:LanguageSetting) {
         lblLanguageName.text = language.name
     }
     

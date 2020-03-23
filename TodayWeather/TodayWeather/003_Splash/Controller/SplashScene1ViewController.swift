@@ -9,14 +9,17 @@
 import UIKit
 
 class SplashScene1ViewController: UIViewController {
-
+    var nextButtonCallBack:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        self.nextButtonCallBack?()
+    }
+    
    
 
 }

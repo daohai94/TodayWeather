@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,11 +42,11 @@
 		33B2D90124247D6A00F51BB4 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90024247D6A00F51BB4 /* NotificationSettingViewController.swift */; };
 		33B2D90424247FAB00F51BB4 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90224247FAB00F51BB4 /* NotificationCell.swift */; };
 		33B2D90524247FAB00F51BB4 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D90324247FAB00F51BB4 /* NotificationCell.xib */; };
-		33B2D907242495EA00F51BB4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D906242495EA00F51BB4 /* Notification.swift */; };
+		33B2D907242495EA00F51BB4 /* NotificationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D906242495EA00F51BB4 /* NotificationSetting.swift */; };
 		33B2D90A24249CE200F51BB4 /* DataSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90824249CE200F51BB4 /* DataSourceCell.swift */; };
 		33B2D90B24249CE200F51BB4 /* DataSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D90924249CE200F51BB4 /* DataSourceCell.xib */; };
 		33B2D90D24249F2700F51BB4 /* DataSourceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90C24249F2700F51BB4 /* DataSourceSettingViewController.swift */; };
-		33B2D90F2424A40800F51BB4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90E2424A40800F51BB4 /* DataSource.swift */; };
+		33B2D90F2424A40800F51BB4 /* DataSourceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D90E2424A40800F51BB4 /* DataSourceSetting.swift */; };
 		33B2D9112424ACF800F51BB4 /* LanguageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9102424ACF800F51BB4 /* LanguageSettingViewController.swift */; };
 		33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */; };
 		33B2D9172424ADDA00F51BB4 /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */; };
@@ -55,6 +55,11 @@
 		33B2D91F2424C00100F51BB4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D91E2424C00100F51BB4 /* SplashViewController.swift */; };
 		33B2D9212424C80500F51BB4 /* SplashScene1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9202424C80500F51BB4 /* SplashScene1ViewController.swift */; };
 		33B2D9232424C81A00F51BB4 /* SplashScene2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2D9222424C81A00F51BB4 /* SplashScene2ViewController.swift */; };
+		33FDB91B24287392000D868F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB91A24287392000D868F /* LaunchViewController.swift */; };
+		33FDB91D2428743F000D868F /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB91C2428743F000D868F /* UserSetting.swift */; };
+		33FDB92024289143000D868F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB91F24289143000D868F /* Models.swift */; };
+		33FDB92424289F77000D868F /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB92324289F77000D868F /* AppManager.swift */; };
+		33FDB9262428A56A000D868F /* UserSettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB9252428A56A000D868F /* UserSettingManager.swift */; };
 		4E17E86DD3197B1F3D66CE30 /* Pods_TodayWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8680A7E6532C4AB7FF2E2770 /* Pods_TodayWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,11 +101,11 @@
 		33B2D90024247D6A00F51BB4 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
 		33B2D90224247FAB00F51BB4 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		33B2D90324247FAB00F51BB4 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
-		33B2D906242495EA00F51BB4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		33B2D906242495EA00F51BB4 /* NotificationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetting.swift; sourceTree = "<group>"; };
 		33B2D90824249CE200F51BB4 /* DataSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceCell.swift; sourceTree = "<group>"; };
 		33B2D90924249CE200F51BB4 /* DataSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSourceCell.xib; sourceTree = "<group>"; };
 		33B2D90C24249F2700F51BB4 /* DataSourceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSettingViewController.swift; sourceTree = "<group>"; };
-		33B2D90E2424A40800F51BB4 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		33B2D90E2424A40800F51BB4 /* DataSourceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSetting.swift; sourceTree = "<group>"; };
 		33B2D9102424ACF800F51BB4 /* LanguageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingViewController.swift; sourceTree = "<group>"; };
 		33B2D9142424ADDA00F51BB4 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		33B2D9152424ADDA00F51BB4 /* LanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
@@ -109,6 +114,11 @@
 		33B2D91E2424C00100F51BB4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		33B2D9202424C80500F51BB4 /* SplashScene1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScene1ViewController.swift; sourceTree = "<group>"; };
 		33B2D9222424C81A00F51BB4 /* SplashScene2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScene2ViewController.swift; sourceTree = "<group>"; };
+		33FDB91A24287392000D868F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		33FDB91C2428743F000D868F /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
+		33FDB91F24289143000D868F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		33FDB92324289F77000D868F /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		33FDB9252428A56A000D868F /* UserSettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingManager.swift; sourceTree = "<group>"; };
 		8680A7E6532C4AB7FF2E2770 /* Pods_TodayWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9663E5CC19033CC8B3209ECA /* Pods-TodayWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWeather.release.xcconfig"; path = "Target Support Files/Pods-TodayWeather/Pods-TodayWeather.release.xcconfig"; sourceTree = "<group>"; };
 		FDE2406C3BF0C7D08B6957B0 /* Pods-TodayWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWeather.debug.xcconfig"; path = "Target Support Files/Pods-TodayWeather/Pods-TodayWeather.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +157,7 @@
 		1B88E28C24212663007D4753 /* TodayWeather */ = {
 			isa = PBXGroup;
 			children = (
+				33FDB91E2428912D000D868F /* Realm */,
 				1BC39B26242265580018FBF1 /* 001_Menu */,
 				1BC39B1D242260630018FBF1 /* 002_Settings */,
 				1BC39B2E24226E7D0018FBF1 /* 003_Splash */,
@@ -160,6 +171,7 @@
 				1B88E29324212663007D4753 /* Main.storyboard */,
 				1B88E29624212663007D4753 /* TodayWeather.xcdatamodeld */,
 				1B88E29124212663007D4753 /* ViewController.swift */,
+				33FDB92324289F77000D868F /* AppManager.swift */,
 			);
 			path = TodayWeather;
 			sourceTree = "<group>";
@@ -274,9 +286,10 @@
 			isa = PBXGroup;
 			children = (
 				1BDAD6362423D90800DE1EEA /* Setting.swift */,
-				33B2D906242495EA00F51BB4 /* Notification.swift */,
-				33B2D90E2424A40800F51BB4 /* DataSource.swift */,
+				33B2D906242495EA00F51BB4 /* NotificationSetting.swift */,
+				33B2D90E2424A40800F51BB4 /* DataSourceSetting.swift */,
 				33B2D9182424AFB300F51BB4 /* Language.swift */,
+				33FDB91C2428743F000D868F /* UserSetting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,8 +321,18 @@
 				33B2D91E2424C00100F51BB4 /* SplashViewController.swift */,
 				33B2D9202424C80500F51BB4 /* SplashScene1ViewController.swift */,
 				33B2D9222424C81A00F51BB4 /* SplashScene2ViewController.swift */,
+				33FDB91A24287392000D868F /* LaunchViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		33FDB91E2428912D000D868F /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				33FDB91F24289143000D868F /* Models.swift */,
+				33FDB9252428A56A000D868F /* UserSettingManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		7BF2B15DD3D2E58D646FAC4A /* Pods */ = {
@@ -457,27 +480,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33B2D90F2424A40800F51BB4 /* DataSource.swift in Sources */,
+				33B2D90F2424A40800F51BB4 /* DataSourceSetting.swift in Sources */,
 				33B2D9162424ADDA00F51BB4 /* LanguageCell.swift in Sources */,
 				1B4E750C24251302001B42AF /* ThirtySixHoursWeatherViewController.swift in Sources */,
 				1B4E750F24251360001B42AF /* DayWeatherCell.swift in Sources */,
+				33FDB9262428A56A000D868F /* UserSettingManager.swift in Sources */,
 				1B4E750A2425127F001B42AF /* TenDaysWeatherViewController.swift in Sources */,
 				33B2D9212424C80500F51BB4 /* SplashScene1ViewController.swift in Sources */,
 				1B4E750824250ED6001B42AF /* AddLocationViewController.swift in Sources */,
 				1BC39B2D24226AF30018FBF1 /* Extensions.swift in Sources */,
 				1BC39B3024226EE10018FBF1 /* MenuViewController.swift in Sources */,
-				33B2D907242495EA00F51BB4 /* Notification.swift in Sources */,
+				33B2D907242495EA00F51BB4 /* NotificationSetting.swift in Sources */,
 				1BC39B25242260C90018FBF1 /* AppStoryboard+AppViewController.swift in Sources */,
 				33B2D90D24249F2700F51BB4 /* DataSourceSettingViewController.swift in Sources */,
 				33B2D90A24249CE200F51BB4 /* DataSourceCell.swift in Sources */,
 				1B88E29224212663007D4753 /* ViewController.swift in Sources */,
 				33B2D91F2424C00100F51BB4 /* SplashViewController.swift in Sources */,
+				33FDB91D2428743F000D868F /* UserSetting.swift in Sources */,
 				1BDAD6372423D90800DE1EEA /* Setting.swift in Sources */,
 				33B2D8FC2424633800F51BB4 /* IconSetCell.swift in Sources */,
 				33B2D90124247D6A00F51BB4 /* NotificationSettingViewController.swift in Sources */,
 				1B88E28E24212663007D4753 /* AppDelegate.swift in Sources */,
+				33FDB91B24287392000D868F /* LaunchViewController.swift in Sources */,
 				33A9382324236BE9003C267E /* MenuTableViewCell.swift in Sources */,
 				33B2D8FF24246FC500F51BB4 /* UnitSettingViewController.swift in Sources */,
+				33FDB92424289F77000D868F /* AppManager.swift in Sources */,
 				1BDAD6422423DCF200DE1EEA /* SettingItemHasDescriptionCell.swift in Sources */,
 				33B2D9232424C81A00F51BB4 /* SplashScene2ViewController.swift in Sources */,
 				33B2D9112424ACF800F51BB4 /* LanguageSettingViewController.swift in Sources */,
@@ -489,6 +516,7 @@
 				1BDAD63E2423DCC700DE1EEA /* SettingItemNoDescriptionCell.swift in Sources */,
 				1B4E75132425171D001B42AF /* HourWeatherCell.swift in Sources */,
 				33B2D90424247FAB00F51BB4 /* NotificationCell.swift in Sources */,
+				33FDB92024289143000D868F /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

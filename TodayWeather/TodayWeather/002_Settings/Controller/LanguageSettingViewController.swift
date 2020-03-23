@@ -12,7 +12,7 @@ class LanguageSettingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var languages:[Language] = []
+    var languages:[LanguageSetting] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,9 +21,7 @@ class LanguageSettingViewController: UIViewController {
     }
     
     func initLanguageItems() {
-        self.languages.append(Language(name: "Default", type: .defaultLanguage))
-        self.languages.append(Language(name: "Vietnamese", type: .vietnamese))
-        self.languages.append(Language(name: "English", type: .english))
+        self.languages.append(LanguageSetting(name: Language.english.rawValue))
     }
     
     func initComponent() {

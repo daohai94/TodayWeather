@@ -11,7 +11,7 @@ import UIKit
 class DataSourceSettingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataSources:[DataSource] = []
+    var dataSources:[DataSourceSetting] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,8 +20,8 @@ class DataSourceSettingViewController: UIViewController {
     }
     
     func initDataSourceItems() {
-        self.dataSources.append(DataSource(name: "Weatherbit.io", description: "Cloudy", currentTemperature: 24))
-        self.dataSources.append(DataSource(name: "Today Weather", description: "Cloudy", currentTemperature: 24))
+        self.dataSources.append(DataSourceSetting(name: "Weatherbit.io", description: "Cloudy", currentTemperature: 24))
+        self.dataSources.append(DataSourceSetting(name: "Today Weather", description: "Cloudy", currentTemperature: 24))
     }
     
     func initComponent() {

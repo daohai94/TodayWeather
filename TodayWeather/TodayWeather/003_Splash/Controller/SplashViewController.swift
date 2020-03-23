@@ -14,6 +14,7 @@ class SplashViewController: UIViewController {
     var scene1VC:SplashScene1ViewController!
     var scene2VC:SplashScene2ViewController!
     var viewControllers:[UIViewController] = []
+    var indexVC:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,6 +27,7 @@ class SplashViewController: UIViewController {
         pageControl.pageIndicatorTintColor = UIColor(hexString: "#333333")
         pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#F7CA75")
         pageControl.backgroundColor = UIColor.clear
+        
         // init scenes of splash
         self.scene1VC = UIStoryboard(name: AppStoryboard.splash.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.splashScene1VC.rawValue) as? SplashScene1ViewController
         self.scene2VC = UIStoryboard(name: AppStoryboard.splash.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.splashScene2VC.rawValue) as? SplashScene2ViewController
@@ -34,7 +36,12 @@ class SplashViewController: UIViewController {
         self.pageViewController.setViewControllers([self.scene1VC], direction: .forward, animated: true, completion: nil)
         self.pageViewController.delegate = self
         self.pageViewController.dataSource = self
-        
+        self.scene1VC.nextButtonCallBack = { [weak self] in
+            self?.pageViewController.setViewControllers([self!.scene2VC], direction: .forward, animated: true, completion: nil)
+        }
+        self.scene2VC.inputCompleteCallback = { [weak self] in
+            self?.openHomeView()
+        }
         self.addChildVC(viewController: pageViewController)
     }
     
@@ -43,6 +50,11 @@ class SplashViewController: UIViewController {
         self.view.frame = viewController.view.frame
         self.view.addSubview(viewController.view)
         viewController.didMove(toParent: self)
+    }
+    
+    func openHomeView() {
+        let vc = UIStoryboard(name: AppStoryboard.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.homeVC.rawValue) as! HomeViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
@@ -63,7 +75,6 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         guard self.viewControllers.count > previousIndex else {
             return nil
         }
-        
         return self.viewControllers[previousIndex]
     }
     
@@ -82,7 +93,6 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         guard orderedViewControllersCount > nextIndex else {
             return nil
         }
-        
         return self.viewControllers[nextIndex]
     }
     
@@ -91,6 +101,7 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+
         return 0
     }
     

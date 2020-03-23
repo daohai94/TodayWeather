@@ -24,7 +24,7 @@ class DataSourceCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUp(dataSource:DataSource) {
+    func setUp(dataSource:DataSourceSetting) {
         lblDataSourceName.text = dataSource.name
         lblDataSourceDescription.text = dataSource.description
         lblTemperature.text = "\(dataSource.currentTemperature)°"

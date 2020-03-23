@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Notification {
+struct NotificationSetting {
     var name:NotificationName
     var description:String
 }

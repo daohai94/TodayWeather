@@ -115,3 +115,19 @@ extension UIColor {
         }
     }
 }
+
+extension Date {
+    func Date2String(format:String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
+
+extension String {
+    func String2Date(format:String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: self)!
+    }
+}
