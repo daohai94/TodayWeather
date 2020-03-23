@@ -14,6 +14,7 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        UserSettingManager.shared.deleteAll()
         self.initComponent()
         self.checkUserSetting()
     }
@@ -27,6 +28,7 @@ class LaunchViewController: UIViewController {
         if userSetting.userName == nil {
             self.openSplashView()
         }else {
+            print("user: \(userSetting)")
             AppManager.currentUserSetting = userSetting
             self.openHomeView()
         }

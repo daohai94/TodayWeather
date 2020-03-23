@@ -48,7 +48,8 @@ class SplashScene2ViewController: UIViewController {
     }
     
     func updateUserSetting() {
-        let userSetting = UserSetting()
+        let currentUserSetting = UserSettingManager.shared.getUserSetting()
+        var userSetting = UserSetting()
         userSetting.id.value = 1
         userSetting.userName = tfUserName.text
         UserSettingManager.shared.updateUserSetting(userSetting: userSetting)

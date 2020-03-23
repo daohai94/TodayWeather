@@ -50,4 +50,10 @@ class UserSettingManager {
             realm.add(userSetting, update: .modified)
         }
     }
+    
+    func deleteAll() {
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
 }
