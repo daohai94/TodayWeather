@@ -14,6 +14,7 @@ class SplashViewController: UIViewController {
     var scene1VC:SplashScene1ViewController!
     var scene2VC:SplashScene2ViewController!
     var viewControllers:[UIViewController] = []
+    var pageControl:UIPageControl!
     var indexVC:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +24,18 @@ class SplashViewController: UIViewController {
     
     func initComponent() {
         // custom pagecontrol page view controller
-        let pageControl = UIPageControl.appearance()
-        pageControl.pageIndicatorTintColor = UIColor(hexString: "#333333")
-        pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#F7CA75")
-        pageControl.backgroundColor = UIColor.clear
         
         // init scenes of splash
         self.scene1VC = UIStoryboard(name: AppStoryboard.splash.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.splashScene1VC.rawValue) as? SplashScene1ViewController
         self.scene2VC = UIStoryboard(name: AppStoryboard.splash.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.splashScene2VC.rawValue) as? SplashScene2ViewController
         self.viewControllers = [self.scene1VC,self.scene2VC]
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        self.pageViewController.setViewControllers([self.scene1VC], direction: .forward, animated: true, completion: nil)
+        self.pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
+        self.pageControl = UIPageControl.appearance()
+        self.pageControl.pageIndicatorTintColor = UIColor(hexString: "#333333")
+        self.pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#F7CA75")
+        self.pageControl.backgroundColor = UIColor.clear
+        self.pageControl.numberOfPages = self.viewControllers.count
         self.pageViewController.delegate = self
         self.pageViewController.dataSource = self
         self.scene1VC.nextButtonCallBack = { [weak self] in
@@ -65,7 +67,6 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         guard let viewControllerIndex = self.viewControllers.index(of: viewController) else {
             return nil
         }
-        
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
@@ -75,6 +76,7 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         guard self.viewControllers.count > previousIndex else {
             return nil
         }
+        
         return self.viewControllers[previousIndex]
     }
     
@@ -82,7 +84,6 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         guard let viewControllerIndex = self.viewControllers.index(of: viewController) else {
             return nil
         }
-        
         let nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = self.viewControllers.count
 
@@ -93,6 +94,7 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         guard orderedViewControllersCount > nextIndex else {
             return nil
         }
+        
         return self.viewControllers[nextIndex]
     }
     
@@ -101,8 +103,7 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-
-        return 0
+        return 1
     }
     
 }
