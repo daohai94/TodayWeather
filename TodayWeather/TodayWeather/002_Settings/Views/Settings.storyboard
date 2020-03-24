@@ -201,6 +201,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="fDegreeButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="2VN-HO-dcy"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-hw-KGM">
                                                         <rect key="frame" x="60" y="0.0" width="60" height="35"/>
@@ -213,6 +216,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cDegreeButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="x02-Hj-ovZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -273,6 +279,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="miButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="OYZ-TF-glw"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTL-fJ-ipQ">
                                                         <rect key="frame" x="60" y="0.0" width="60" height="35"/>
@@ -285,6 +294,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="kmButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="yFW-H9-2Bt"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -345,6 +357,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mphButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="TCS-6w-WaI"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAn-Dx-V5b" userLabel="separator">
                                                         <rect key="frame" x="60.5" y="0.0" width="1" height="35"/>
@@ -364,6 +379,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="kphButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="NAL-Ge-M8l"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhx-bj-hb6" userLabel="separator">
                                                         <rect key="frame" x="122" y="0.0" width="1" height="35"/>
@@ -383,6 +401,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="kmhButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="8Zf-q3-T19"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6k6-RC-acr" userLabel="separator">
                                                         <rect key="frame" x="183.5" y="0.0" width="1" height="35"/>
@@ -402,6 +423,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="msButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="FXb-CE-3Bj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -466,6 +490,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mBarButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="Xjs-cj-arw"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pb9-oQ-jj4" userLabel="separator">
                                                         <rect key="frame" x="60" y="0.0" width="1" height="35"/>
@@ -485,6 +512,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="inHgButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="2oJ-Nk-06g"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehm-09-25c" userLabel="separator">
                                                         <rect key="frame" x="121.5" y="0.0" width="1" height="35"/>
@@ -504,6 +534,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="psiButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="jCD-ol-mqU"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyJ-ef-qfI" userLabel="separator">
                                                         <rect key="frame" x="182.5" y="0.0" width="1" height="35"/>
@@ -523,6 +556,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="barButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="w5V-WC-6vW"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDL-L8-Uoq" userLabel="separator">
                                                         <rect key="frame" x="244" y="0.0" width="1" height="35"/>
@@ -542,6 +578,9 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mmHgButtonTapped:" destination="zOS-vL-LLr" eventType="touchUpInside" id="68w-KK-vDn"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -599,6 +638,21 @@ EVByZXNzdXJlA
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gSF-67-LSo"/>
                     </view>
+                    <connections>
+                        <outlet property="btnBAR" destination="rsJ-ZF-gjt" id="Ogf-p8-7sv"/>
+                        <outlet property="btnCDegree" destination="Kkg-hw-KGM" id="kfa-Yl-5Qa"/>
+                        <outlet property="btnFDegree" destination="nGR-y7-J77" id="j8n-Rz-jPT"/>
+                        <outlet property="btnINHG" destination="8bm-O1-Vh0" id="f42-Im-hlR"/>
+                        <outlet property="btnKM" destination="JTL-fJ-ipQ" id="zUj-Vf-yZO"/>
+                        <outlet property="btnKMH" destination="phk-QC-0v8" id="MJ3-0G-ddG"/>
+                        <outlet property="btnKPH" destination="J3g-Yy-4Sm" id="5q3-Fh-5Bd"/>
+                        <outlet property="btnMBAR" destination="6Jw-vr-Wog" id="2q8-sY-YTN"/>
+                        <outlet property="btnMI" destination="1B4-kE-Sdp" id="PIu-XN-5E4"/>
+                        <outlet property="btnMMHG" destination="4fx-jA-8ei" id="PxL-Xu-eod"/>
+                        <outlet property="btnMPH" destination="VXi-zd-R49" id="MIS-HK-2T9"/>
+                        <outlet property="btnMS" destination="Hv2-dz-Tg4" id="pAB-Gs-PHy"/>
+                        <outlet property="btnPSI" destination="A15-rE-J9D" id="G7p-6Z-SCS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ai-yw-JJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

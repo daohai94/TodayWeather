@@ -21,13 +21,13 @@ class SettingsViewController: UIViewController {
     }
     
     func initSettingItems() {
-        self.settings.append(Setting(name: .picture, description: "On"))
+        self.settings.append(Setting(name: .picture, description: AppManager.currentUserSetting!.isEnabledPicture ? "On" : "Off"))
         self.settings.append(Setting(name: .iconSet, description: ""))
         self.settings.append(Setting(name: .unit, description: ""))
         self.settings.append(Setting(name: .notification, description: ""))
-        self.settings.append(Setting(name: .dataSource, description: "Weatherbit.io"))
-        self.settings.append(Setting(name: .yourName, description: "Haipro"))
-        self.settings.append(Setting(name: .language, description: "English"))
+        self.settings.append(Setting(name: .dataSource, description: AppManager.currentUserSetting!.dataSource))
+        self.settings.append(Setting(name: .yourName, description: AppManager.currentUserSetting!.userName))
+        self.settings.append(Setting(name: .language, description: AppManager.currentUserSetting!.language))
         self.settings.append(Setting(name: .version, description: "v1.0"))
     }
     
@@ -47,6 +47,18 @@ class SettingsViewController: UIViewController {
 
     @objc func settingItemTapped(_ sender:UIButton){
         self.openSettingItemView(setting: self.settings[sender.tag])
+    }
+    
+    @objc func switchSettingValueChanged(_ sender:UISwitch) {
+        switch settings[sender.tag].name {
+        case .picture:
+            AppManager.currentUserSetting!.isEnabledPicture = sender.isOn
+            settings[sender.tag].description = sender.isOn ? "On" : "Off"
+            break
+        default:
+            break
+        }
+        self.tableView.reloadData()
     }
     
     func openSettingItemView(setting:Setting) {
@@ -128,6 +140,8 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
         case .picture,.dataSource,.yourName,.language,.version:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SettingItemHasDescriptionCell", for: indexPath) as! SettingItemHasDescriptionCell
             cell.btnSettingItem.tag = indexPath.row
+            cell.switchSetting.tag = indexPath.row
+            cell.switchSetting.addTarget(self, action: #selector(self.switchSettingValueChanged(_:)), for: .valueChanged)
             cell.btnSettingItem.addTarget(self, action: #selector(self.settingItemTapped(_:)), for: .touchUpInside)
             cell.setUp(setting: self.settings[indexPath.row])
             return cell

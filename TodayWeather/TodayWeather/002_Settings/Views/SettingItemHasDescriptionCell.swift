@@ -33,6 +33,8 @@ class SettingItemHasDescriptionCell: UITableViewCell {
             btnSettingItem.isUserInteractionEnabled = false
             switchSetting.isHidden = false
             switchSetting.isUserInteractionEnabled = true
+            switchSetting.isOn = AppManager.currentUserSetting!.isEnabledPicture
+            switchSetting.setOn(AppManager.currentUserSetting!.isEnabledPicture, animated: true)
         }else {
             btnSettingItem.isHidden = false
             btnSettingItem.isUserInteractionEnabled = true
