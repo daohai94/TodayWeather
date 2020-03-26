@@ -2,7 +2,7 @@
 //  UserSettingStore+CoreDataProperties.swift
 //  TodayWeather
 //
-//  Created by Đào Thanh Hải on 3/23/20.
+//  Created by Dao Thanh Hai on 3/26/20.
 //  Copyright © 2020 Đào Thanh Hải. All rights reserved.
 //
 //
@@ -18,23 +18,22 @@ extension UserSettingStore {
         return NSFetchRequest<UserSettingStore>(entityName: "UserSettingStore")
     }
 
-    @NSManaged public var id: Int64
-    @NSManaged public var isEnabledPicture: Bool
-    @NSManaged public var iconSetIndex: Int64
-    @NSManaged public var isEnabledRainSnowAlarm: Bool
-    @NSManaged public var language: String?
-    @NSManaged public var userName: String?
     @NSManaged public var dataSource: String?
-    @NSManaged public var isEnabledSevereAlert: Bool
-    @NSManaged public var timeNotification: Date?
+    @NSManaged public var distanceInit: String?
+    @NSManaged public var iconSetIndex: Int64
+    @NSManaged public var id: Int64
     @NSManaged public var isEnabledDailyNotification: Bool
+    @NSManaged public var isEnabledPicture: Bool
+    @NSManaged public var isEnabledRainSnowAlarm: Bool
+    @NSManaged public var isEnabledSevereAlert: Bool
+    @NSManaged public var language: String?
     @NSManaged public var pressureUnit: String?
     @NSManaged public var speedUnit: String?
-    @NSManaged public var distanceInit: String?
     @NSManaged public var temperatureUnit: String?
+    @NSManaged public var timeNotification: Date?
+    @NSManaged public var userName: String?
 
 }
-
 class UserSettingStoreManager {
     func getUserSetting(byId id:Int64) -> UserSetting {
         var userSetting = UserSetting(id: 1, isEnabledPicture: true, iconSetIndex: 1, temperatureUnit: TemperatureUnit.C.rawValue, distanceInit: DistanceUnit.km.rawValue, speedUnit: SpeedUnit.kmh.rawValue, pressureUnit: PressureUnit.mBar.rawValue, isEnabledDailyNotification: true, timeNotification: "08:00".String2Date(format: "HH:mm"), isEnabledSevereAlert: true, isEnabledRainSnowAlarm: true, dataSource: DataSource.weatherbit.rawValue, userName: "", language: Language.english.rawValue)
