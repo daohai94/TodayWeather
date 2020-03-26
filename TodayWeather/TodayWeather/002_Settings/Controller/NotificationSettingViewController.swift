@@ -9,10 +9,12 @@
 import UIKit
 
 class NotificationSettingViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var notifications:[NotificationSetting] = []
+    var notificationSettingCompleteCallBack:(()->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,11 +41,32 @@ class NotificationSettingViewController: UIViewController {
         self.tableView.register(UINib(nibName: "NotificationCell", bundle: nil), forCellReuseIdentifier: "NotificationCell")
     }
     
+    @objc func switchModeNotificationValueChanged(_ sender:UISwitch) {
+        switch self.notifications[sender.tag].name {
+        case .daily:
+            AppManager.currentUserSetting!.isEnabledDailyNotification = sender.isOn
+            self.notifications[sender.tag].description = sender.isOn ? "On" : "Off"
+            break
+        case .rainAndSnowAlarm:
+            AppManager.currentUserSetting!.isEnabledRainSnowAlarm = sender.isOn
+            break
+        case .severeAlert:
+            AppManager.currentUserSetting!.isEnabledSevereAlert = sender.isOn
+            self.notifications[sender.tag].description = sender.isOn ? "On" : "Off"
+            break
+        default:
+            break
+        }
+        self.tableView.reloadData()
+        
+    }
+    
     @IBAction func backButtonTapped(_ sender: Any) {
+        self.notificationSettingCompleteCallBack?()
         self.navigationController?.popViewController(animated: true)
     }
     
-
+    
 }
 
 //MARK: Tableview delegate, datasource
@@ -54,6 +77,8 @@ extension NotificationSettingViewController:UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
+        cell.switchModeNotification.tag = indexPath.row
+        cell.switchModeNotification.addTarget(self, action: #selector(self.switchModeNotificationValueChanged(_:)), for: .valueChanged)
         cell.setUp(notification: self.notifications[indexPath.row])
         return cell
     }

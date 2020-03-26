@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     //MARK: Outlet
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var menuBackgroundView: UIView!
@@ -63,6 +63,12 @@ class HomeViewController: UIViewController {
             print("HAIDT - initComponent: SettingsViewController is nil")
             return
         }
+        settingsVC.closeSettingCallBack = { [weak self] in
+            print("userSetting: \(AppManager.currentUserSetting!)")
+            DispatchQueue.main.async {
+                UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
+            }
+        }
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
@@ -82,5 +88,5 @@ class HomeViewController: UIViewController {
         self.openMenuView()
     }
     
-
+    
 }
