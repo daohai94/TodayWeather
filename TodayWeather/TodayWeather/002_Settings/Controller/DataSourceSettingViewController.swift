@@ -21,7 +21,6 @@ class DataSourceSettingViewController: UIViewController {
     
     func initDataSourceItems() {
         self.dataSources.append(DataSourceSetting(name: "Weatherbit.io", description: "Cloudy", currentTemperature: 24))
-        self.dataSources.append(DataSourceSetting(name: "Today Weather", description: "Cloudy", currentTemperature: 24))
     }
     
     func initComponent() {

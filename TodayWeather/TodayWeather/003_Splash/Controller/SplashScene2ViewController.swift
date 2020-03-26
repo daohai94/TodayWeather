@@ -15,7 +15,7 @@ class SplashScene2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        initComponent()
+        self.initComponent()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

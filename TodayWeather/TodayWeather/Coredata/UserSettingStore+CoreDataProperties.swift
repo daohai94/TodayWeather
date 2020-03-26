@@ -13,11 +13,11 @@ import UIKit
 
 
 extension UserSettingStore {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<UserSettingStore> {
         return NSFetchRequest<UserSettingStore>(entityName: "UserSettingStore")
     }
-
+    
     @NSManaged public var dataSource: String?
     @NSManaged public var distanceInit: String?
     @NSManaged public var iconSetIndex: Int64
@@ -32,13 +32,13 @@ extension UserSettingStore {
     @NSManaged public var temperatureUnit: String?
     @NSManaged public var timeNotification: Date?
     @NSManaged public var userName: String?
-
+    
 }
 class UserSettingStoreManager {
     func getUserSetting(byId id:Int64) -> UserSetting {
         var userSetting = UserSetting(id: 1, isEnabledPicture: true, iconSetIndex: 1, temperatureUnit: TemperatureUnit.C.rawValue, distanceInit: DistanceUnit.km.rawValue, speedUnit: SpeedUnit.kmh.rawValue, pressureUnit: PressureUnit.mBar.rawValue, isEnabledDailyNotification: true, timeNotification: "08:00".String2Date(format: "HH:mm"), isEnabledSevereAlert: true, isEnabledRainSnowAlarm: true, dataSource: DataSource.weatherbit.rawValue, userName: "", language: Language.english.rawValue)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return userSetting
+            return userSetting
         }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let entityDescription =
@@ -53,12 +53,8 @@ class UserSettingStoreManager {
         do {
             let results = try managedObjectContext.fetch(request)
             if results.count > 0 {
-                for result in results{
-                    let match = result as! NSManagedObject
-                    userSetting = UserSetting(id: match.value(forKey: "id") as? Int64 ?? 1, isEnabledPicture: match.value(forKey: "isEnabledPicture") as? Bool ?? true, iconSetIndex: match.value(forKey: "iconSetIndex") as? Int64 ?? 1, temperatureUnit: match.value(forKey: "temperatureUnit") as! String, distanceInit: match.value(forKey: "distanceInit") as! String, speedUnit: match.value(forKey: "speedUnit") as! String, pressureUnit: match.value(forKey: "pressureUnit") as! String, isEnabledDailyNotification: match.value(forKey: "isEnabledDailyNotification") as? Bool ?? true, timeNotification: match.value(forKey: "timeNotification") as? Date ?? Date(), isEnabledSevereAlert: match.value(forKey: "isEnabledSevereAlert") as? Bool ?? true, isEnabledRainSnowAlarm: match.value(forKey: "isEnabledRainSnowAlarm") as? Bool ?? true, dataSource: match.value(forKey: "dataSource") as! String, userName: match.value(forKey: "userName") as! String, language: match.value(forKey: "language") as! String)
-                }
-                
-                
+                let match = results[0] as! NSManagedObject
+                userSetting = UserSetting(id: match.value(forKey: "id") as? Int64 ?? 1, isEnabledPicture: match.value(forKey: "isEnabledPicture") as? Bool ?? true, iconSetIndex: match.value(forKey: "iconSetIndex") as? Int64 ?? 1, temperatureUnit: match.value(forKey: "temperatureUnit") as! String, distanceInit: match.value(forKey: "distanceInit") as! String, speedUnit: match.value(forKey: "speedUnit") as! String, pressureUnit: match.value(forKey: "pressureUnit") as! String, isEnabledDailyNotification: match.value(forKey: "isEnabledDailyNotification") as? Bool ?? true, timeNotification: match.value(forKey: "timeNotification") as? Date ?? Date(), isEnabledSevereAlert: match.value(forKey: "isEnabledSevereAlert") as? Bool ?? true, isEnabledRainSnowAlarm: match.value(forKey: "isEnabledRainSnowAlarm") as? Bool ?? true, dataSource: match.value(forKey: "dataSource") as! String, userName: match.value(forKey: "userName") as! String, language: match.value(forKey: "language") as! String)
             }
         } catch let error as NSError {
             print("\(error)")

@@ -9,6 +9,8 @@
 import UIKit
 
 class UnitSettingViewController: UIViewController {
+    
+    //MARK: Outlet
     @IBOutlet weak var btnFDegree: UIButton!
     @IBOutlet weak var btnCDegree: UIButton!
     @IBOutlet weak var btnMI: UIButton!
@@ -23,6 +25,7 @@ class UnitSettingViewController: UIViewController {
     @IBOutlet weak var btnBAR: UIButton!
     @IBOutlet weak var btnMMHG: UIButton!
     
+    var setupUnitCompleteCallBack:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -190,41 +193,92 @@ class UnitSettingViewController: UIViewController {
     }
     
     @IBAction func fDegreeButtonTapped(_ sender: Any) {
-        
+        if AppManager.currentUserSetting!.temperatureUnit != TemperatureUnit.F.rawValue {
+            AppManager.currentUserSetting!.temperatureUnit = TemperatureUnit.F.rawValue
+            self.setupTemperatureButtons(withTemperatureUnit: .F)
+        }
     }
     @IBAction func cDegreeButtonTapped(_ sender: Any) {
+        if AppManager.currentUserSetting!.temperatureUnit != TemperatureUnit.C.rawValue {
+            AppManager.currentUserSetting!.temperatureUnit = TemperatureUnit.C.rawValue
+            self.setupTemperatureButtons(withTemperatureUnit: .C)
+        }
         
-       }
+    }
     @IBAction func miButtonTapped(_ sender: Any) {
-        
-       }
+        if AppManager.currentUserSetting!.distanceInit != DistanceUnit.mi.rawValue {
+            AppManager.currentUserSetting!.distanceInit = DistanceUnit.mi.rawValue
+            self.setupDistanceButtons(withDistanceUnit: .mi)
+        }
+    }
     @IBAction func kmButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.distanceInit != DistanceUnit.km.rawValue {
+            AppManager.currentUserSetting!.distanceInit = DistanceUnit.km.rawValue
+            self.setupDistanceButtons(withDistanceUnit: .km)
+        }
+    }
     @IBAction func mphButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.speedUnit != SpeedUnit.mph.rawValue {
+            AppManager.currentUserSetting!.speedUnit = SpeedUnit.mph.rawValue
+            self.setupSpeedButtons(withSpeedUnit: .mph)
+        }
+    }
     @IBAction func kphButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.speedUnit != SpeedUnit.kph.rawValue {
+            AppManager.currentUserSetting!.speedUnit = SpeedUnit.kph.rawValue
+            self.setupSpeedButtons(withSpeedUnit: .kph)
+        }
+    }
     @IBAction func kmhButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.speedUnit != SpeedUnit.kmh.rawValue {
+            AppManager.currentUserSetting!.speedUnit = SpeedUnit.kmh.rawValue
+            self.setupSpeedButtons(withSpeedUnit: .kmh)
+        }
+    }
     @IBAction func msButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.speedUnit != SpeedUnit.ms.rawValue {
+            AppManager.currentUserSetting!.speedUnit = SpeedUnit.ms.rawValue
+            self.setupSpeedButtons(withSpeedUnit: .ms)
+        }
+    }
     @IBAction func mBarButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.pressureUnit != PressureUnit.mBar.rawValue {
+            AppManager.currentUserSetting!.pressureUnit = PressureUnit.mBar.rawValue
+            self.setupPressureButtons(withPressureUnit: .mBar)
+        }
+    }
     @IBAction func inHgButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.pressureUnit != PressureUnit.inHg.rawValue {
+            AppManager.currentUserSetting!.pressureUnit = PressureUnit.inHg.rawValue
+            self.setupPressureButtons(withPressureUnit: .inHg)
+        }
+    }
     @IBAction func psiButtonTapped(_ sender: Any) {
+        if AppManager.currentUserSetting!.pressureUnit != PressureUnit.psi.rawValue {
+            AppManager.currentUserSetting!.pressureUnit = PressureUnit.psi.rawValue
+            self.setupPressureButtons(withPressureUnit: .psi)
+        }
     }
     @IBAction func barButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.pressureUnit != PressureUnit.bar.rawValue {
+            AppManager.currentUserSetting!.pressureUnit = PressureUnit.bar.rawValue
+            self.setupPressureButtons(withPressureUnit: .bar)
+        }
+    }
     
     @IBAction func mmHgButtonTapped(_ sender: Any) {
-       }
+        if AppManager.currentUserSetting!.pressureUnit != PressureUnit.mmHg.rawValue {
+            AppManager.currentUserSetting!.pressureUnit = PressureUnit.mmHg.rawValue
+            self.setupPressureButtons(withPressureUnit: .mmHg)
+        }
+    }
     
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        self.setupUnitCompleteCallBack?()
         self.navigationController?.popViewController(animated: true)
     }
     
-   
-
+    
+    
 }

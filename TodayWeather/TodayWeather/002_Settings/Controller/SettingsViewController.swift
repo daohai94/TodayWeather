@@ -9,10 +9,11 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var settings:[Setting] = []
+    var closeSettingCallBack:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -44,7 +45,7 @@ class SettingsViewController: UIViewController {
         tableView.register(UINib(nibName: "SettingItemHasDescriptionCell", bundle: nil), forCellReuseIdentifier: "SettingItemHasDescriptionCell")
     }
     
-
+    
     @objc func settingItemTapped(_ sender:UIButton){
         self.openSettingItemView(setting: self.settings[sender.tag])
     }
@@ -53,7 +54,7 @@ class SettingsViewController: UIViewController {
         switch settings[sender.tag].name {
         case .picture:
             AppManager.currentUserSetting!.isEnabledPicture = sender.isOn
-            settings[sender.tag].description = sender.isOn ? "On" : "Off"
+            self.settings[sender.tag].description = sender.isOn ? "On" : "Off"
             break
         default:
             break
@@ -69,13 +70,25 @@ class SettingsViewController: UIViewController {
             self.navigationController?.pushViewController(iconSetSettingVC, animated: true)
             break
         case .unit:
-           print("HAIDT - open setting unit")
-           let unitSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.unitSettingVC.rawValue) as! UnitSettingViewController
-           self.navigationController?.pushViewController(unitSettingVC, animated: true)
+            print("HAIDT - open setting unit")
+            let unitSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.unitSettingVC.rawValue) as! UnitSettingViewController
+            unitSettingVC.setupUnitCompleteCallBack = { [weak self] in
+                print("userSetting: \(AppManager.currentUserSetting!)")
+                DispatchQueue.main.async {
+                    UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
+                }
+            }
+            self.navigationController?.pushViewController(unitSettingVC, animated: true)
             break
         case .notification:
             print("HAIDT - open setting notification")
             let notificationSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.notificationSettingVC.rawValue) as! NotificationSettingViewController
+            notificationSettingVC.notificationSettingCompleteCallBack = { [weak self] in
+                 print("userSetting: \(AppManager.currentUserSetting!)")
+                DispatchQueue.main.async {
+                    UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
+                }
+            }
             self.navigationController?.pushViewController(notificationSettingVC, animated: true)
             break
         case .dataSource:
@@ -99,28 +112,45 @@ class SettingsViewController: UIViewController {
     
     func openNameSettingPopup() {
         let alertInputName = UIAlertController(title: "Your Name", message: "", preferredStyle: .alert)
-
+        
         // cancel button
         alertInputName.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         
         // OK button
         alertInputName.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            guard let textField = alertInputName.textFields?[0] else { return }
+            guard let str = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+            if str.count < 1 {
+                self.alertValidateTextField()
+            }else{
+                guard let index = self.settings.firstIndex(where: {$0.name == SettingName.yourName}) else{ return }
+                AppManager.currentUserSetting!.userName = str
+                self.settings[index].description = str
+                
+                self.tableView.reloadData()
+            }
            
         }))
         
         // Text field
         alertInputName.addTextField(configurationHandler: { textField in
-            textField.text = "Haipro"
+            textField.text = AppManager.currentUserSetting!.userName
             textField.placeholder = "Your Name"
         })
         self.present(alertInputName, animated: true, completion: nil)
     }
+    func alertValidateTextField() {
+        let alert = UIAlertController(title: "Warning", message: "Input name must at least 1 character", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func closeSettingsButtonTapped(_ sender: Any) {
+        self.closeSettingCallBack?()
         self.navigationController?.popViewController(animated: true)
     }
     
-
+    
 }
 
 //MARK: - Table view delegate, datasource
@@ -154,5 +184,5 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     
-
+    
 }
