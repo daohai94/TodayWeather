@@ -23,9 +23,9 @@ class NotificationSettingViewController: UIViewController {
     }
     
     func initNotificationItems() {
-        self.notifications.append(NotificationSetting(name: .daily, description: "On"))
-        self.notifications.append(NotificationSetting(name: .time, description: "8:00 AM"))
-        self.notifications.append(NotificationSetting(name: .severeAlert, description: "On"))
+        self.notifications.append(NotificationSetting(name: .daily, description: AppManager.currentUserSetting!.isEnabledDailyNotification ? "On" : "Off"))
+        self.notifications.append(NotificationSetting(name: .time, description: AppManager.currentUserSetting!.timeNotification.Date2String(format: "h:mm a")))
+        self.notifications.append(NotificationSetting(name: .severeAlert, description: AppManager.currentUserSetting!.isEnabledSevereAlert ? "On" : "Off"))
         self.notifications.append(NotificationSetting(name: .rainAndSnowAlarm, description: "Alerts you when rain, snow is approaching"))
     }
     
@@ -61,6 +61,25 @@ class NotificationSettingViewController: UIViewController {
         
     }
     
+    func openTimePicker() {
+        let timePickerVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.timePickerVC.rawValue) as! TimePickerViewController
+        timePickerVC.pickTimeCompleteCallBack = { [weak self] date in
+            guard let index = self?.notifications.firstIndex(where: {$0.name == .time}) else { return }
+//            let dateComponents = Calendar.current.dateComponents([.hour,.minute], from: date)
+            AppManager.currentUserSetting!.timeNotification = date
+            self?.notifications[index].description = date.Date2String(format: "h:mm a")
+            self?.tableView.reloadData()
+        }
+        self.addChildVC(viewController: timePickerVC)
+    }
+    
+    func addChildVC(viewController:UIViewController) {
+        self.addChild(viewController)
+        self.view.frame = viewController.view.frame
+        self.view.addSubview(viewController.view)
+        viewController.didMove(toParent: self)
+    }
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.notificationSettingCompleteCallBack?()
         self.navigationController?.popViewController(animated: true)
@@ -79,8 +98,18 @@ extension NotificationSettingViewController:UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
         cell.switchModeNotification.tag = indexPath.row
         cell.switchModeNotification.addTarget(self, action: #selector(self.switchModeNotificationValueChanged(_:)), for: .valueChanged)
+        cell.selectionStyle = .none
         cell.setUp(notification: self.notifications[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.notifications[indexPath.row].name == .time {
+            self.openTimePicker()
+        }
+        else{
+            return
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
