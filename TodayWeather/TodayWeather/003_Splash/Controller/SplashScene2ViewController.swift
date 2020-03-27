@@ -9,7 +9,7 @@
 import UIKit
 
 class SplashScene2ViewController: UIViewController {
-
+    
     @IBOutlet weak var tfUserName: UITextField!
     var inputCompleteCallback:(()->())?
     override func viewDidLoad() {
@@ -66,7 +66,7 @@ class SplashScene2ViewController: UIViewController {
     
     
     
-
+    
 }
 
 extension SplashScene2ViewController:UITextFieldDelegate {

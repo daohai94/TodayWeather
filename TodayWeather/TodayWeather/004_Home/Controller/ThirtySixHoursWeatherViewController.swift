@@ -9,7 +9,7 @@
 import UIKit
 
 class ThirtySixHoursWeatherViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class ThirtySixHoursWeatherViewController: UIViewController {
     }
     
     
-
+    
 }
 //MARK: - Tableview delegate, datasource
 extension ThirtySixHoursWeatherViewController:UITableViewDataSource,UITableViewDelegate{
@@ -50,5 +50,5 @@ extension ThirtySixHoursWeatherViewController:UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
+    
 }
