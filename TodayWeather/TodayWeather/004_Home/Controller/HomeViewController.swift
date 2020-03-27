@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     func initComponent() {
         self.menuBackgroundView.isHidden = true
         self.menuBackgroundView.isUserInteractionEnabled = false
-        self.menuTrailingConstraint.constant = -1000
+        self.menuTrailingConstraint.constant = -menuView.bounds.width
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.menuBackgroundViewTappedHandle(_:)))
         self.menuBackgroundView.addGestureRecognizer(tapGesture)
         guard let menuVC = UIStoryboard(name: AppStoryboard.menu.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.menuVC.rawValue) as? MenuViewController else {
@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
             self.menuBackgroundView.isHidden = true
             self.menuBackgroundView.isUserInteractionEnabled = false
-            self.menuTrailingConstraint.constant = -1000
+            self.menuTrailingConstraint.constant = -self.menuView.bounds.width
             self.view.layoutIfNeeded()
         }, completion: { _ in
             completion?()
