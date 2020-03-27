@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     //MARK: Outlet
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var menuBackgroundView: UIView!
-    @IBOutlet weak var menuViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var menuTrailingConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -24,9 +24,9 @@ class HomeViewController: UIViewController {
     func initComponent() {
         self.menuBackgroundView.isHidden = true
         self.menuBackgroundView.isUserInteractionEnabled = false
+        self.menuTrailingConstraint.constant = -1000
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.menuBackgroundViewTappedHandle(_:)))
         self.menuBackgroundView.addGestureRecognizer(tapGesture)
-        self.menuViewWidthConstraint.constant = 0
         guard let menuVC = UIStoryboard(name: AppStoryboard.menu.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.menuVC.rawValue) as? MenuViewController else {
             print("HAIDT - initComponent: MenuViewController is nil")
             return
@@ -49,10 +49,10 @@ class HomeViewController: UIViewController {
         viewController.didMove(toParent: self)
     }
     func closeMenuView(completion:(()->Void)?) {
-        self.menuBackgroundView.isHidden = true
-        self.menuBackgroundView.isUserInteractionEnabled = false
-        self.menuViewWidthConstraint.constant = 0
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            self.menuBackgroundView.isHidden = true
+            self.menuBackgroundView.isUserInteractionEnabled = false
+            self.menuTrailingConstraint.constant = -1000
             self.view.layoutIfNeeded()
         }, completion: { _ in
             completion?()
@@ -73,10 +73,10 @@ class HomeViewController: UIViewController {
     }
     
     func openMenuView() {
-        self.menuBackgroundView.isHidden = false
-        self.menuBackgroundView.isUserInteractionEnabled = true
-        self.menuViewWidthConstraint.constant = self.view.bounds.width * 255 / 375
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            self.menuBackgroundView.isHidden = false
+            self.menuBackgroundView.isUserInteractionEnabled = true
+            self.menuTrailingConstraint.constant = 0
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
