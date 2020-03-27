@@ -83,11 +83,13 @@ class NotificationSettingViewController: BaseViewController {
         case .rainAndSnowAlarm:
             AppManager.currentUserSetting!.isEnabledRainSnowAlarm = sender.isOn
             self.notificationSettingCompleteCallBack?()
+            self.tableView.reloadData()
             break
         case .severeAlert:
             AppManager.currentUserSetting!.isEnabledSevereAlert = sender.isOn
             self.notifications[sender.tag].description = sender.isOn ? "On" : "Off"
             self.notificationSettingCompleteCallBack?()
+            self.tableView.reloadData()
             break
         default:
             break
