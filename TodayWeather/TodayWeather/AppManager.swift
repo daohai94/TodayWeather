@@ -10,4 +10,5 @@ import Foundation
 
 class AppManager {
     public static var currentUserSetting:UserSetting?
+    public static var dailyNotificationIdentify = "daily_notification"
 }

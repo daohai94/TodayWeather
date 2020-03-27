@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationSettingViewController: UIViewController {
+class NotificationSettingViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,20 +44,55 @@ class NotificationSettingViewController: UIViewController {
     @objc func switchModeNotificationValueChanged(_ sender:UISwitch) {
         switch self.notifications[sender.tag].name {
         case .daily:
-            AppManager.currentUserSetting!.isEnabledDailyNotification = sender.isOn
-            self.notifications[sender.tag].description = sender.isOn ? "On" : "Off"
+            print("HAIDT switchStatus: \(sender.isOn)")
+            if sender.isOn {
+                self.checkAuthorizationNotification(withCompletionHandler: {isAllow in
+                    if isAllow {
+                        DispatchQueue.main.async {
+                            AppManager.currentUserSetting!.isEnabledDailyNotification = true
+                            self.notifications[sender.tag].description = "On"
+                            self.scheduleDailyNotification()
+                            self.tableView.reloadData()
+                            self.notificationSettingCompleteCallBack?()
+                        }
+                        
+                    }else {
+                        print("HAIDT need allow authorizationNotification")
+                        DispatchQueue.main.async {
+                            AppManager.currentUserSetting!.isEnabledDailyNotification = false
+                            self.notifications[sender.tag].description = "Off"
+                            self.tableView.reloadData()
+                            self.notificationSettingCompleteCallBack?()
+                        }
+                    }
+                })
+            }else {
+                self.checkAuthorizationNotification(withCompletionHandler: {isAllow in
+                    if isAllow {
+                        DispatchQueue.main.async {
+                            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [AppManager.dailyNotificationIdentify])
+                            AppManager.currentUserSetting!.isEnabledDailyNotification = false
+                            self.notifications[sender.tag].description = "Off"
+                            self.tableView.reloadData()
+                            self.notificationSettingCompleteCallBack?()
+                        }                        
+                    }
+                })
+            }
             break
         case .rainAndSnowAlarm:
             AppManager.currentUserSetting!.isEnabledRainSnowAlarm = sender.isOn
+            self.notificationSettingCompleteCallBack?()
             break
         case .severeAlert:
             AppManager.currentUserSetting!.isEnabledSevereAlert = sender.isOn
             self.notifications[sender.tag].description = sender.isOn ? "On" : "Off"
+            self.notificationSettingCompleteCallBack?()
             break
         default:
             break
         }
-        self.tableView.reloadData()
+        
         
     }
     
@@ -65,12 +100,25 @@ class NotificationSettingViewController: UIViewController {
         let timePickerVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.timePickerVC.rawValue) as! TimePickerViewController
         timePickerVC.pickTimeCompleteCallBack = { [weak self] date in
             guard let index = self?.notifications.firstIndex(where: {$0.name == .time}) else { return }
-//            let dateComponents = Calendar.current.dateComponents([.hour,.minute], from: date)
             AppManager.currentUserSetting!.timeNotification = date
             self?.notifications[index].description = date.Date2String(format: "h:mm a")
+            self?.reScheduleNotification()
             self?.tableView.reloadData()
+            self?.notificationSettingCompleteCallBack?()
         }
         self.addChildVC(viewController: timePickerVC)
+    }
+    
+    func reScheduleNotification() {
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {settings in
+            if settings.authorizationStatus == .authorized {
+                if AppManager.currentUserSetting!.isEnabledDailyNotification {
+                    self.scheduleDailyNotification()
+                }
+            }else {
+                self.requestAuthorizationNotification()
+            }
+        })
     }
     
     func addChildVC(viewController:UIViewController) {
@@ -81,7 +129,7 @@ class NotificationSettingViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.notificationSettingCompleteCallBack?()
+        //        self.notificationSettingCompleteCallBack?()
         self.navigationController?.popViewController(animated: true)
     }
     

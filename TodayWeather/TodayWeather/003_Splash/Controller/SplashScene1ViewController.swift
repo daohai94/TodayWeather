@@ -12,7 +12,7 @@ class SplashScene1ViewController: UIViewController {
     var nextButtonCallBack:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -20,6 +20,6 @@ class SplashScene1ViewController: UIViewController {
         self.nextButtonCallBack?()
     }
     
-   
-
+    
+    
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class LanguageSettingViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var languages:[LanguageSetting] = []

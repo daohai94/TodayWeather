@@ -9,7 +9,7 @@
 import UIKit
 
 class SplashViewController: UIViewController {
-
+    
     var pageViewController:UIPageViewController!
     var scene1VC:SplashScene1ViewController!
     var scene2VC:SplashScene2ViewController!
@@ -58,7 +58,7 @@ class SplashViewController: UIViewController {
         let vc = UIStoryboard(name: AppStoryboard.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.homeVC.rawValue) as! HomeViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
 }
 
 //MARK: - UIPageViewController delegate, datasource
@@ -86,7 +86,7 @@ extension SplashViewController:UIPageViewControllerDelegate,UIPageViewController
         }
         let nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = self.viewControllers.count
-
+        
         guard orderedViewControllersCount != nextIndex else {
             return nil
         }

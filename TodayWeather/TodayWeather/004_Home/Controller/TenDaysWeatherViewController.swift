@@ -9,7 +9,7 @@
 import UIKit
 
 class TenDaysWeatherViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class TenDaysWeatherViewController: UIViewController {
     }
     
     
-
+    
 }
 
 //MARK: - Tableview delegate, datasource
@@ -50,5 +50,5 @@ extension TenDaysWeatherViewController:UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
+    
 }

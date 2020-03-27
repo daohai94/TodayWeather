@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
             return
         }
         settingsVC.closeSettingCallBack = { [weak self] in
-            print("userSetting: \(AppManager.currentUserSetting!)")
+            print("HAIDT userSetting: \(AppManager.currentUserSetting!)")
             DispatchQueue.main.async {
                 UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
             }

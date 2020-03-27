@@ -9,7 +9,7 @@
 import UIKit
 
 class DataSourceSettingViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var dataSources:[DataSourceSetting] = []
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class DataSourceSettingViewController: UIViewController {
         self.tableView.register(UINib(nibName: "DataSourceCell", bundle: nil), forCellReuseIdentifier: "DataSourceCell")
     }
     
-
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

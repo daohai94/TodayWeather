@@ -84,7 +84,7 @@ class SettingsViewController: UIViewController {
             print("HAIDT - open setting notification")
             let notificationSettingVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.notificationSettingVC.rawValue) as! NotificationSettingViewController
             notificationSettingVC.notificationSettingCompleteCallBack = { [weak self] in
-                 print("userSetting: \(AppManager.currentUserSetting!)")
+                print("userSetting: \(AppManager.currentUserSetting!)")
                 DispatchQueue.main.async {
                     UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
                 }
@@ -126,10 +126,9 @@ class SettingsViewController: UIViewController {
                 guard let index = self.settings.firstIndex(where: {$0.name == SettingName.yourName}) else{ return }
                 AppManager.currentUserSetting!.userName = str
                 self.settings[index].description = str
-                
                 self.tableView.reloadData()
             }
-           
+            
         }))
         
         // Text field
