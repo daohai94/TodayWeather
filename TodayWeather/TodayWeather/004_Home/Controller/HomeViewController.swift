@@ -65,9 +65,7 @@ class HomeViewController: UIViewController {
         }
         settingsVC.closeSettingCallBack = { [weak self] in
             print("HAIDT userSetting: \(AppManager.currentUserSetting!)")
-            DispatchQueue.main.async {
-                UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
-            }
+            // do some thing
         }
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }

@@ -55,6 +55,9 @@ class SettingsViewController: UIViewController {
         case .picture:
             AppManager.currentUserSetting!.isEnabledPicture = sender.isOn
             self.settings[sender.tag].description = sender.isOn ? "On" : "Off"
+            DispatchQueue.main.async {
+                UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
+            }
             break
         default:
             break
@@ -127,6 +130,10 @@ class SettingsViewController: UIViewController {
                 AppManager.currentUserSetting!.userName = str
                 self.settings[index].description = str
                 self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    UserSettingStoreManager().updateUserSetting(userSetting: AppManager.currentUserSetting!)
+                }
+                
             }
             
         }))
