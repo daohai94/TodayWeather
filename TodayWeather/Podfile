@@ -7,5 +7,5 @@ target 'TodayWeather' do
 
   # Pods for TodayWeather
 pod 'Alamofire','5.0.4'
-
+pod 'SwiftyJSON', '5.0.0'
 end
