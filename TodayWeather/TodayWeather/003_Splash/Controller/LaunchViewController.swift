@@ -13,6 +13,7 @@ class LaunchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.initData()
         self.initComponent()
         self.checkUserSetting()
     }
@@ -20,6 +21,17 @@ class LaunchViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    func initData() {
+        if let path = Bundle.main.path(forResource: "cities_full", ofType: "json") {
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                print("DataCount: \(data.count)")
+              } catch {
+                   // handle error
+              }
+        }
     }
     
     func initComponent() {
