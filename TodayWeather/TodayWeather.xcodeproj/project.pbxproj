@@ -20,6 +20,7 @@
 		1B88E29824212663007D4753 /* TodayWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B88E29624212663007D4753 /* TodayWeather.xcdatamodeld */; };
 		1B88E29A24212663007D4753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B88E29924212663007D4753 /* Assets.xcassets */; };
 		1B88E29D24212663007D4753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B88E29B24212663007D4753 /* LaunchScreen.storyboard */; };
+		1BA7CC862432197E0019FBD9 /* cities_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BA7CC852432197E0019FBD9 /* cities_full.json */; };
 		1BC39B22242260A70018FBF1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC39B21242260A70018FBF1 /* Settings.storyboard */; };
 		1BC39B25242260C90018FBF1 /* AppStoryboard+AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC39B24242260C90018FBF1 /* AppStoryboard+AppViewController.swift */; };
 		1BC39B2A2422657A0018FBF1 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC39B292422657A0018FBF1 /* Menu.storyboard */; };
@@ -81,6 +82,7 @@
 		1B88E29924212663007D4753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B88E29C24212663007D4753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B88E29E24212663007D4753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BA7CC852432197E0019FBD9 /* cities_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities_full.json; sourceTree = "<group>"; };
 		1BC39B21242260A70018FBF1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		1BC39B24242260C90018FBF1 /* AppStoryboard+AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStoryboard+AppViewController.swift"; sourceTree = "<group>"; };
 		1BC39B292422657A0018FBF1 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		1B88E28C24212663007D4753 /* TodayWeather */ = {
 			isa = PBXGroup;
 			children = (
+				1BA7CC852432197E0019FBD9 /* cities_full.json */,
 				3384F069242C44940083B308 /* Coredata */,
 				1BC39B26242265580018FBF1 /* 001_Menu */,
 				1BC39B1D242260630018FBF1 /* 002_Settings */,
@@ -431,6 +434,7 @@
 				1BC39B352422707F0018FBF1 /* Home.storyboard in Resources */,
 				1B88E29524212663007D4753 /* Main.storyboard in Resources */,
 				33B2D8FD2424633800F51BB4 /* IconSetCell.xib in Resources */,
+				1BA7CC862432197E0019FBD9 /* cities_full.json in Resources */,
 				1BDAD63F2423DCC700DE1EEA /* SettingItemNoDescriptionCell.xib in Resources */,
 				1BC39B22242260A70018FBF1 /* Settings.storyboard in Resources */,
 				33B2D91D2424BFBB00F51BB4 /* Splash.storyboard in Resources */,
