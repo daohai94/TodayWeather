@@ -18,7 +18,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        _ = ApiClient.getAllEvents(success: { (data) in
+            print(data)
+        }, fail: { (code, error) in
+            print(error)
+        })
         self.initComponent()
     }
     func initComponent() {

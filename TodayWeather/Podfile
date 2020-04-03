@@ -6,6 +6,6 @@ target 'TodayWeather' do
   use_frameworks!
 
   # Pods for TodayWeather
-pod 'Alamofire','5.0.4'
+pod 'Alamofire','4.8.2'
 pod 'SwiftyJSON', '5.0.0'
 end
