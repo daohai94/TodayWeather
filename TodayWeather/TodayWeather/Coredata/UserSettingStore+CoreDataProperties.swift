@@ -41,10 +41,8 @@ class UserSettingStoreManager {
     }
     func getUserSetting(byId id:Int64) -> UserSetting {        
         var userSetting = UserSetting(id: 1, isEnabledPicture: true, iconSetIndex: 1, temperatureUnit: TemperatureUnit.C.rawValue, distanceInit: DistanceUnit.km.rawValue, speedUnit: SpeedUnit.kmh.rawValue, pressureUnit: PressureUnit.mBar.rawValue, isEnabledDailyNotification: true, timeNotification: self.getDefaultDate(), isEnabledSevereAlert: true, isEnabledRainSnowAlarm: true, dataSource: DataSource.weatherbit.rawValue, userName: "", language: Language.english.rawValue)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return userSetting
-        }
-        let managedObjectContext = appDelegate.persistentContainer.viewContext
+        
+        let managedObjectContext = AppDelegate.persistentContainer.viewContext
         let entityDescription =
             NSEntityDescription.entity(forEntityName: "UserSettingStore",
                                        in: managedObjectContext)
@@ -66,11 +64,8 @@ class UserSettingStoreManager {
         return userSetting
     }
     func updateUserSetting(userSetting:UserSetting) {
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        let managedObjectContext = appDelegate.persistentContainer.viewContext
+
+        let managedObjectContext = AppDelegate.persistentContainer.viewContext
         let entityDescription =
             NSEntityDescription.entity(forEntityName: "UserSettingStore",
                                        in: managedObjectContext)

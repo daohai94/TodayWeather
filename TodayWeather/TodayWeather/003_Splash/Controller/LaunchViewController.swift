@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LaunchViewController: BaseViewController {
     
@@ -25,13 +26,29 @@ class LaunchViewController: BaseViewController {
     
     func initData() {
         if let path = Bundle.main.path(forResource: "cities_full", ofType: "json") {
+            var cities:[City] = []
             do {
-                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 print("DataCount: \(data.count)")
-              } catch {
-                   // handle error
-              }
+                DispatchQueue.global(qos: .background).async {
+                    if let json = try? JSON(data: data,options: .allowFragments) {
+                        print("json: \(json.array?.count) - \(Date())")
+                        if let array = json.array{
+                            for item in array {
+                                let city = City(id: item["city_id"].int64Value, lon: item["lon"].floatValue, lat: item["lat"].floatValue, coutry_name: item["country_full"].stringValue, coutry_code: item["country_code"].stringValue, state_code: item["state_code"].stringValue, name: item["city_name"].stringValue)
+                                cities.append(city)
+                                
+                            }
+                        }
+                        print("cities: \(cities.count) - \(Date())")
+                    }
+                }
+                AppManager.cities = cities
+            } catch {
+                // handle error
+            }
         }
+        
     }
     
     func initComponent() {

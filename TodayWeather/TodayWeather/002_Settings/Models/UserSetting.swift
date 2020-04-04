@@ -25,16 +25,6 @@ struct UserSetting {
     var language:String
 }
 
-struct City {
-    var lat:CGFloat
-    var long:CGFloat
-    var cityName:String
-    var cityId:String
-    var countryName:String
-}
-
-
-
 enum TemperatureUnit : String {
     case C = "°C"
     case F = "°F"
