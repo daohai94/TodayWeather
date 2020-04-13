@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import PagingMenuController
 
 class HomeViewController: UIViewController {
     //MARK: Outlet
@@ -23,6 +22,7 @@ class HomeViewController: UIViewController {
 
         self.initComponent()
         locationManager.delegate = self
+        retriveCurrentLocation()
         collectionview.delegate = self
         collectionview.dataSource = self
         collectionview.register(UINib(nibName: "WeatherCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WeatherCollectionViewCell")
