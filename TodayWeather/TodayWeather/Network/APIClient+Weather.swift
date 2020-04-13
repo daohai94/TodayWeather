@@ -11,22 +11,23 @@ import Alamofire
 import SwiftyJSON
 
 extension ApiClient {
-    static func getAllEvents(success: @escaping ResponseSuccess,
-                             fail: @escaping ResponseFailure) -> Request? {
+    static func getWeather(lat: Double, long: Double,
+                           success: @escaping ResponseSuccess,
+                           fail: @escaping ResponseFailure) -> Request? {
         // create url
         let urlString = "v2.0/current"
         // create params
         var params = ApiClient.defaultParams()
-        params["lat"] = 21.026685
-        params["lon"] = 105.820765
+        params["lat"] = lat
+        params["lon"] = long
         // create headers
         let headers = [HeaderKey.ContentType: HeaderValue.ApplicationJson]
         let url = ApiClient.weatherURL(urlString)
         return sessionManager.request(url, method: .get, parameters: params,
-                                           encoding: URLEncoding.default, headers: headers)
+                                      encoding: URLEncoding.default, headers: headers)
             .validate()
             .responseJSON { response in
                 ApiClient.proccessResponse(success: success, fail: fail, response: response)
-            }
+        }
     }
 }

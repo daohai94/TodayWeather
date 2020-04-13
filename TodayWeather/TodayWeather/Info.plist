@@ -62,5 +62,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to know your location to display your location weather.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to know your location to display your location weather.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to know your location to display your location weather.</string>
 </dict>
 </plist>
