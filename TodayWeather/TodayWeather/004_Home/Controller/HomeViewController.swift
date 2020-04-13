@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
     //MARK: Outlet
