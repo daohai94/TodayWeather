@@ -31,9 +31,11 @@ class HomeViewController: UIViewController {
 
     func getWeather(_ lat: Double, long: Double) {
         _ = ApiClient.getWeather(lat: lat, long: long, success: { (data) in
-            let json = JSON(data)
-            let a = CurrentWeatherDataModel.createFromList(json: json["data"].object)
-            print(a.count)
+            let jsonData = JSON(data)["data"]
+            print("JSON: \(jsonData)")
+            if let currentWeatherModel = try? CurrentWeatherDataModel(data: jsonData.rawData()) {
+                print("HAIDT: ---- \(currentWeatherModel)")
+            }            
         }, fail: { (statusCode, error) in
             print(error)
         })
