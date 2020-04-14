@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 // MARK: - CurrentWeatherDataModel
 struct CurrentWeatherDataModel {
@@ -34,6 +35,30 @@ struct CurrentWeatherDataModel {
     var temp: Double?
     var lat: String?
     var slp: Double?
+
+    init?(json: Any?) {
+        guard let jsonData = json else { return nil }
+        // using SwiftyJSON
+        let json = JSON(jsonData)
+        self.windCdir = json["wind_cdir"].string
+        self.rh = json["rh"].int
+    }
+
+    static func createFromList(json: Any?) -> [CurrentWeatherDataModel] {
+        guard let jsonData = json else { return [] }
+        // using SwiftyJSON
+        let jsonValue = JSON(jsonData)
+        // create tmp
+        var breakdowns: [CurrentWeatherDataModel] = []
+        // loop
+        for item in jsonValue.arrayValue {
+            if let breakdown = CurrentWeatherDataModel(json: item.object) {
+                breakdowns.append(breakdown)
+            }
+        }
+        // return
+        return breakdowns
+    }
 }
 
 // MARK: - Weather
