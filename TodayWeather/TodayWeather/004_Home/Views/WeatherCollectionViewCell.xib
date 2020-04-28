@@ -749,6 +749,7 @@
             <size key="customSize" width="416" height="1773"/>
             <connections>
                 <outlet property="slider" destination="RoW-gA-S7k" id="or6-5g-KNQ"/>
+                <outlet property="sunSetView" destination="hvm-CM-wpe" id="VkI-Q2-kWb"/>
             </connections>
             <point key="canvasLocation" x="402.17391304347831" y="198.54910714285714"/>
         </collectionViewCell>
