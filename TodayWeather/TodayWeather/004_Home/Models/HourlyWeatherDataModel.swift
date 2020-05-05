@@ -43,7 +43,7 @@ extension HourlyWeatherDataModelElement {
         self.windCdir = json["wind_cdir"].string
         self.windCdirFull = json["wind_cdir_full"].string
         self.temp = json["temp"].double
-        self.appTemp = json["app_temp"].int
+        self.appTemp = json["app_temp"].double
         self.pop = json["pop"].int
         self.precip = json["precip"].double
         self.snow = json["snow"].int
