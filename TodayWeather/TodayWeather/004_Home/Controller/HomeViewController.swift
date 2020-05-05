@@ -32,10 +32,12 @@ class HomeViewController: UIViewController {
     func getWeather(_ lat: Double, long: Double) {
         _ = ApiClient.getWeather(lat: lat, long: long, success: { (data) in
             let jsonData = JSON(data)["data"]
-            print("JSON: \(jsonData)")
-            if let currentWeatherModel = try? CurrentWeatherDataModel(data: jsonData.rawData()) {
-                print("HAIDT: ---- \(currentWeatherModel)")
-            }            
+            if let jsonArray = jsonData.array {
+                if let currentWeatherJSON = jsonArray.first {
+                    let current = CurrentWeatherDataModelElement(json: currentWeatherJSON)
+                    print("CURRENT: \(current)")
+                }
+            }
         }, fail: { (statusCode, error) in
             print(error)
         })
@@ -160,7 +162,8 @@ extension HomeViewController: CLLocationManagerDelegate {
             //self.longitudeLabel.text = "\(location.coordinate.longitude)"
             print("lat: \(location.coordinate.latitude)")
             print("long: \(location.coordinate.longitude)")
-            getWeather(location.coordinate.latitude, long: location.coordinate.longitude)
+//            getWeather(location.coordinate.latitude, long: location.coordinate.longitude)
+            getWeather(21.0245, long: 105.84117)
         }
     }
 

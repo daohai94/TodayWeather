@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 // MARK: - HourlyWeatherDataModelElement
-struct HourlyWeatherDataModelElement: Codable {
+struct HourlyWeatherDataModelElement {
     var timestampLocal, timestampUTC: String?
     var ts: Int?
     var datetime: String?
@@ -26,151 +27,41 @@ struct HourlyWeatherDataModelElement: Codable {
     var solarRAD: Double?
     var uv: Int?
     var ozone: Double?
-
-    enum CodingKeys: String, CodingKey {
-        case timestampLocal = "timestamp_local"
-        case timestampUTC = "timestamp_utc"
-        case ts, datetime
-        case windGustSpd = "wind_gust_spd"
-        case windSpd = "wind_spd"
-        case windDir = "wind_dir"
-        case windCdir = "wind_cdir"
-        case windCdirFull = "wind_cdir_full"
-        case temp
-        case appTemp = "app_temp"
-        case pop, precip, snow
-        case snowDepth = "snow_depth"
-        case slp, pres, dewpt, rh, weather, pod
-        case cloudsLow = "clouds_low"
-        case cloudsMid = "clouds_mid"
-        case cloudsHi = "clouds_hi"
-        case clouds, vis, dhi, dni, ghi
-        case solarRAD = "solar_rad"
-        case uv, ozone
-    }
 }
-
-// MARK: HourlyWeatherDataModelElement convenience initializers and mutators
-
 extension HourlyWeatherDataModelElement {
-    init(data: Data) throws {
-        self = try newJSONDecoder().decode(HourlyWeatherDataModelElement.self, from: data)
-    }
-
-    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-        guard let data = json.data(using: encoding) else {
-            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-        }
-        try self.init(data: data)
-    }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func with(
-        timestampLocal: String?? = nil,
-        timestampUTC: String?? = nil,
-        ts: Int?? = nil,
-        datetime: String?? = nil,
-        windGustSpd: Double?? = nil,
-        windSpd: Double?? = nil,
-        windDir: Int?? = nil,
-        windCdir: String?? = nil,
-        windCdirFull: String?? = nil,
-        temp: Int?? = nil,
-        appTemp: Int?? = nil,
-        pop: Int?? = nil,
-        precip: Int?? = nil,
-        snow: Int?? = nil,
-        snowDepth: Int?? = nil,
-        slp: Int?? = nil,
-        pres: Double?? = nil,
-        dewpt: Double?? = nil,
-        rh: Double?? = nil,
-        weather: Weather?? = nil,
-        pod: String?? = nil,
-        cloudsLow: Int?? = nil,
-        cloudsMid: Int?? = nil,
-        cloudsHi: Int?? = nil,
-        clouds: Int?? = nil,
-        vis: Int?? = nil,
-        dhi: Int?? = nil,
-        dni: Int?? = nil,
-        ghi: Int?? = nil,
-        solarRAD: Double?? = nil,
-        uv: Int?? = nil,
-        ozone: Double?? = nil
-    ) -> HourlyWeatherDataModelElement {
-        return HourlyWeatherDataModelElement(
-            timestampLocal: timestampLocal ?? self.timestampLocal,
-            timestampUTC: timestampUTC ?? self.timestampUTC,
-            ts: ts ?? self.ts,
-            datetime: datetime ?? self.datetime,
-            windGustSpd: windGustSpd ?? self.windGustSpd,
-            windSpd: windSpd ?? self.windSpd,
-            windDir: windDir ?? self.windDir,
-            windCdir: windCdir ?? self.windCdir,
-            windCdirFull: windCdirFull ?? self.windCdirFull,
-            temp: temp ?? self.temp,
-            appTemp: appTemp ?? self.appTemp,
-            pop: pop ?? self.pop,
-            precip: precip ?? self.precip,
-            snow: snow ?? self.snow,
-            snowDepth: snowDepth ?? self.snowDepth,
-            slp: slp ?? self.slp,
-            pres: pres ?? self.pres,
-            dewpt: dewpt ?? self.dewpt,
-            rh: rh ?? self.rh,
-            weather: weather ?? self.weather,
-            pod: pod ?? self.pod,
-            cloudsLow: cloudsLow ?? self.cloudsLow,
-            cloudsMid: cloudsMid ?? self.cloudsMid,
-            cloudsHi: cloudsHi ?? self.cloudsHi,
-            clouds: clouds ?? self.clouds,
-            vis: vis ?? self.vis,
-            dhi: dhi ?? self.dhi,
-            dni: dni ?? self.dni,
-            ghi: ghi ?? self.ghi,
-            solarRAD: solarRAD ?? self.solarRAD,
-            uv: uv ?? self.uv,
-            ozone: ozone ?? self.ozone
-        )
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
-    }
-}
-
-typealias HourlyWeatherDataModel = [HourlyWeatherDataModelElement]
-
-extension Array where Element == HourlyWeatherDataModel.Element {
-    init(data: Data) throws {
-        self = try newJSONDecoder().decode(HourlyWeatherDataModel.self, from: data)
-    }
-
-    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-        guard let data = json.data(using: encoding) else {
-            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-        }
-        try self.init(data: data)
-    }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
+    init(json:JSON) {
+        self.timestampLocal = json["timestamp_local"].string
+        self.timestampUTC = json["timestamp_utc"].string
+        self.ts = json["ts"].int
+        self.datetime = json["datetime"].string
+        self.windGustSpd = json["wind_gust_spd"].double
+        self.windSpd = json["wind_spd"].double
+        self.windDir = json["wind_dir"].int
+        self.windCdir = json["wind_cdir"].string
+        self.windCdirFull = json["wind_cdir_full"].string
+        self.temp = json["temp"].int
+        self.appTemp = json["app_temp"].int
+        self.pop = json["pop"].int
+        self.precip = json["precip"].int
+        self.snow = json["snow"].int
+        self.snowDepth = json["snow_depth"].int
+        self.slp = json["slp"].int
+        self.pres = json["pres"].double
+        self.dewpt = json["dewpt"].double
+        self.rh = json["rh"].double
+        self.weather = Weather(json: json["weather"])
+        self.pod = json["pod"].string
+        self.cloudsLow = json["clouds_low"].int
+        self.cloudsMid = json["clouds_mid"].int
+        self.cloudsHi = json["clouds_hi"].int
+        self.clouds = json["clouds"].int
+        self.vis = json["vis"].int
+        self.dhi = json["dhi"].int
+        self.dni = json["dni"].int
+        self.ghi = json["ghi"].int
+        self.solarRAD = json["solar_rad"].double
+        self.uv = json["uv"].int
+        self.ozone = json["ozone"].double
     }
 }
 
