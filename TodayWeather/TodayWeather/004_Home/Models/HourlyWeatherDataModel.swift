@@ -17,15 +17,18 @@ struct HourlyWeatherDataModelElement {
     var windGustSpd, windSpd: Double?
     var windDir: Int?
     var windCdir, windCdirFull: String?
-    var temp, appTemp, pop, precip: Int?
-    var snow, snowDepth, slp: Int?
-    var pres, dewpt, rh: Double?
+    var temp, appTemp, precip: Double?
+    var pop:Int?
+    var snow, snowDepth: Int?
+    var slp:Double?
+    var pres, dewpt: Double?
+    var rh:Int?
     var weather: Weather?
     var pod: String?
     var cloudsLow, cloudsMid, cloudsHi, clouds: Int?
-    var vis, dhi, dni, ghi: Int?
+    var vis, dhi, dni, ghi: Double?
     var solarRAD: Double?
-    var uv: Int?
+    var uv: Double?
     var ozone: Double?
 }
 extension HourlyWeatherDataModelElement {
@@ -39,28 +42,28 @@ extension HourlyWeatherDataModelElement {
         self.windDir = json["wind_dir"].int
         self.windCdir = json["wind_cdir"].string
         self.windCdirFull = json["wind_cdir_full"].string
-        self.temp = json["temp"].int
+        self.temp = json["temp"].double
         self.appTemp = json["app_temp"].int
         self.pop = json["pop"].int
-        self.precip = json["precip"].int
+        self.precip = json["precip"].double
         self.snow = json["snow"].int
         self.snowDepth = json["snow_depth"].int
-        self.slp = json["slp"].int
+        self.slp = json["slp"].double
         self.pres = json["pres"].double
         self.dewpt = json["dewpt"].double
-        self.rh = json["rh"].double
+        self.rh = json["rh"].int
         self.weather = Weather(json: json["weather"])
         self.pod = json["pod"].string
         self.cloudsLow = json["clouds_low"].int
         self.cloudsMid = json["clouds_mid"].int
         self.cloudsHi = json["clouds_hi"].int
         self.clouds = json["clouds"].int
-        self.vis = json["vis"].int
-        self.dhi = json["dhi"].int
-        self.dni = json["dni"].int
-        self.ghi = json["ghi"].int
+        self.vis = json["vis"].double
+        self.dhi = json["dhi"].double
+        self.dni = json["dni"].double
+        self.ghi = json["ghi"].double
         self.solarRAD = json["solar_rad"].double
-        self.uv = json["uv"].int
+        self.uv = json["uv"].double
         self.ozone = json["ozone"].double
     }
 }

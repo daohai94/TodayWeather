@@ -17,16 +17,21 @@ struct DailyWeatherDataModelElement {
     var windGustSpd, windSpd: Double?
     var windDir: Int?
     var windCdir, windCdirFull: String?
-    var temp, maxTemp, minTemp, highTemp: Int?
+    var temp, maxTemp, minTemp, highTemp: Double?
     var lowTemp, appMaxTemp, appMinTemp: Double?
-    var pop, precip, snow, snowDepth: Int?
-    var slp: Int?
-    var pres, dewpt, rh: Double?
+    var pop:Int?
+    var precip: Double?
+    var snow,snowDepth:Int?
+    var slp: Double?
+    var pres, dewpt: Double?
+    var rh:Int?
     var weather: Weather?
     var pod: String?
     var cloudsLow, cloudsMid, cloudsHi, clouds: Int?
-    var vis, maxDhi, uv: Int?
-    var moonPhase, moonPhaseLunation: Double?
+    var vis:Double?
+    var maxDhi, uv: Double?
+    var moonPhase:Double?
+    var moonPhaseLunation: Double?
     var moonriseTs, moonsetTs, sunriseTs, sunsetTs: Int?
 }
 
@@ -42,30 +47,30 @@ extension DailyWeatherDataModelElement {
         self.windDir = json["wind_dir"].int
         self.windCdir = json["wind_cdir"].string
         self.windCdirFull = json["wind_cdir_full"].string
-        self.temp = json["temp"].int
-        self.maxTemp = json["max_temp"].int
-        self.minTemp = json["min_temp"].int
-        self.highTemp = json["high_temp"].int
+        self.temp = json["temp"].double
+        self.maxTemp = json["max_temp"].double
+        self.minTemp = json["min_temp"].double
+        self.highTemp = json["high_temp"].double
         self.lowTemp = json["low_temp"].double
         self.appMaxTemp = json["app_max_temp"].double
         self.appMinTemp = json["app_min_temp"].double
         self.pop = json["pop"].int
-        self.precip = json["precip"].int
+        self.precip = json["precip"].double
         self.snow = json["snow"].int
         self.snowDepth = json["snow_depth"].int
-        self.slp = json["slp"].int
+        self.slp = json["slp"].double
         self.pres = json["pres"].double
         self.dewpt = json["dewpt"].double
-        self.rh = json["rh"].double
+        self.rh = json["rh"].int
         self.weather = Weather(json: json["weather"])
         self.pod = json["pod"].string
         self.cloudsLow = json["clouds_low"].int
         self.cloudsMid = json["clouds_mid"].int
         self.cloudsHi = json["clouds_hi"].int
         self.clouds = json["clouds"].int
-        self.vis = json["vis"].int
-        self.maxDhi = json["max_dhi"].int
-        self.uv = json["uv"].int
+        self.vis = json["vis"].double
+        self.maxDhi = json["max_dhi"].double
+        self.uv = json["uv"].double
         self.moonPhase = json["moon_phase"].double
         self.moonPhaseLunation = json["moon_phase_lunation"].double
         self.moonriseTs = json["moonrise_ts"].int
