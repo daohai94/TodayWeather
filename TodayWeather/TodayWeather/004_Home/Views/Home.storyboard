@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -609,13 +609,11 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="qg5-wu-3pb" firstAttribute="top" secondItem="7Xg-DJ-gWv" secondAttribute="top" id="6el-Hw-nIm"/>
-                                    <constraint firstAttribute="trailing" secondItem="qg5-wu-3pb" secondAttribute="trailing" id="fHc-9y-m7y"/>
-                                    <constraint firstItem="qg5-wu-3pb" firstAttribute="leading" secondItem="7Xg-DJ-gWv" secondAttribute="leading" id="nIA-iZ-euY"/>
-                                    <constraint firstAttribute="bottom" secondItem="qg5-wu-3pb" secondAttribute="bottom" id="v2C-ug-VgE"/>
+                                    <constraint firstItem="qg5-wu-3pb" firstAttribute="leading" secondItem="7Xg-DJ-gWv" secondAttribute="leading" id="DvN-dn-5Ag"/>
+                                    <constraint firstAttribute="bottom" secondItem="qg5-wu-3pb" secondAttribute="bottom" id="PQn-pe-6bR"/>
+                                    <constraint firstItem="qg5-wu-3pb" firstAttribute="top" secondItem="7Xg-DJ-gWv" secondAttribute="top" id="RTN-Z1-QfD"/>
+                                    <constraint firstAttribute="trailing" secondItem="qg5-wu-3pb" secondAttribute="trailing" id="gP1-o3-vtS"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="vtJ-TA-FJe"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="89R-7R-4VT"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

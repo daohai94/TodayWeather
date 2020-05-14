@@ -12,3 +12,7 @@ struct Configs {
     static let baseURL = "https://api.weatherbit.io/"
     static let apiKey = "7fd09da1fb8d4bc992ad4fd0e7e5d39b"
 }
+
+struct DateFormat {
+    static let EddMMM = "E','dd MMM"
+}

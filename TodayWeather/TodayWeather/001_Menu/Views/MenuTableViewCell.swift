@@ -10,7 +10,11 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var btnOption: UIButton!
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var currentTempLabel: UILabel!
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +24,12 @@ class MenuTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setData(_ data: CurrentWeatherDataModelElement) {
+        locationLabel.text = data.cityName
+        currentTempLabel.text = data.temp?.toTempString()
+        weatherImageView.image = UIImage(named: data.weather?.icon ?? "")
     }
     
 }

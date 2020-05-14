@@ -12,7 +12,7 @@ import SwiftyJSON
 // MARK: - CurrentWeatherDataModelElement
 struct CurrentWeatherDataModelElement {
     var lastObTime, obTime: String?
-    var temp: Int?
+    var temp: Double?
     var ghi: Double?
     var cityName: String?
     var windSpd, dhi: Double?
@@ -30,7 +30,8 @@ struct CurrentWeatherDataModelElement {
     var uv, hAngle: Double?
     var clouds: Int?
     var windCdirFull: String?
-    var ts, appTemp: Int?
+    var ts: Int?
+    var appTemp: Double?
     var lon: Double?
     var timezone: String?
     var vis: Int?
@@ -38,12 +39,19 @@ struct CurrentWeatherDataModelElement {
     var weather: Weather?
     var pres: Double?
     var datetime: String?
+    
+    func weatherDescription() -> String {
+        return "Today - "
+        + (self.weather?.weatherDescription ?? "")
+        + ". High \(self.appTemp?.toTemp() ?? "")"
+        + ", low \(self.dewpt?.toTemp() ?? ""). Wind \(self.windCdirFull ?? "") at \(Int(self.windSpd ?? 0)) km/h"
+    }
 }
 extension CurrentWeatherDataModelElement {
     init(json:JSON) {
         self.lastObTime = json["last_ob_time"].string
         self.obTime = json["ob_time"].string
-        self.temp = json["temp"].int
+        self.temp = json["temp"].double
         self.ghi = json["ghi"].double
         self.cityName = json["city_name"].string
         self.windSpd = json["wind_spd"].double
@@ -70,7 +78,7 @@ extension CurrentWeatherDataModelElement {
         self.clouds = json["clouds"].int
         self.windCdirFull = json["wind_cdir_full"].string
         self.ts = json["ts"].int
-        self.appTemp = json["app_temp"].int
+        self.appTemp = json["app_temp"].double
         self.lon = json["lon"].double
         self.timezone = json["timezone"].string
         self.vis = json["vis"].int

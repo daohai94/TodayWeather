@@ -12,4 +12,21 @@ class AppManager {
     public static var currentUserSetting:UserSetting?
     public static var dailyNotificationIdentify = "daily_notification"
     public static var cities:[City] = []
+    static var savedCities: [City] {
+        get {
+            if let decoded  = UserDefaults.standard.data(forKey: "Cities") {
+                    let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [City]
+                return decodedTeams ?? []
+            }
+            return []
+        }
+        
+        set {
+            let userDefaults = UserDefaults.standard
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: newValue)
+            userDefaults.set(encodedData, forKey: "Cities")
+            userDefaults.synchronize()
+        }
+    }
+    static var weatherData: [CurrentWeatherDataModelElement] = []
 }

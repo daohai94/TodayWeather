@@ -30,20 +30,24 @@ class LaunchViewController: BaseViewController {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 print("DataCount: \(data.count)")
-                DispatchQueue.global(qos: .background).async {
+                DispatchQueue.global().async {
                     if let json = try? JSON(data: data,options: .allowFragments) {
                         print("json: \(json.array?.count) - \(Date())")
                         if let array = json.array{
                             for item in array {
                                 let city = City(id: item["city_id"].int64Value, lon: item["lon"].floatValue, lat: item["lat"].floatValue, coutry_name: item["country_full"].stringValue, coutry_code: item["country_code"].stringValue, state_code: item["state_code"].stringValue, name: item["city_name"].stringValue)
+                                if city.id == 1581130 {
+                                    print(city)
+                                }
                                 cities.append(city)
                                 
                             }
                         }
                         print("cities: \(cities.count) - \(Date())")
+                        AppManager.cities = cities
                     }
                 }
-                AppManager.cities = cities
+                
             } catch {
                 // handle error
             }

@@ -123,7 +123,7 @@ class CityStoreManager {
     }
 }
 
-struct City {
+class City: NSObject, NSCoding {
     var id: Int64
     var lon: Float
     var lat: Float
@@ -131,6 +131,38 @@ struct City {
     var coutry_code: String?
     var state_code: String?
     var name: String?
+    
+    init(id: Int64, lon: Float, lat: Float, coutry_name: String?, coutry_code: String?, state_code: String?, name: String?) {
+        self.id = id
+        self.lon = lon
+        self.lat = lat
+        self.coutry_name = coutry_name
+        self.coutry_code = coutry_code
+        self.state_code = state_code
+        self.name = name
+
+    }
+
+    required convenience init(coder aDecoder: NSCoder) {
+        let id = aDecoder.decodeInt64(forKey: "id")
+        let lon = aDecoder.decodeFloat(forKey: "lon")
+        let lat = aDecoder.decodeFloat(forKey: "lat")
+        let coutry_name = aDecoder.decodeObject(forKey: "coutry_name") as? String
+        let coutry_code = aDecoder.decodeObject(forKey: "coutry_code") as? String
+        let state_code = aDecoder.decodeObject(forKey: "state_code") as? String
+        let name = aDecoder.decodeObject(forKey: "name") as? String
+        self.init(id: id, lon: lon, lat: lat, coutry_name: coutry_name, coutry_code: coutry_code, state_code: state_code, name: name)
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(lon, forKey: "lon")
+        aCoder.encode(lat, forKey: "lat")
+        aCoder.encode(coutry_name, forKey: "coutry_name")
+        aCoder.encode(coutry_code, forKey: "coutry_code")
+        aCoder.encode(state_code, forKey: "state_code")
+        aCoder.encode(name, forKey: "name")
+    }
 }
 
 
