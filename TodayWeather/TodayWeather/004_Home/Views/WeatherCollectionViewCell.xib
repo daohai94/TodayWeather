@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1118,11 +1118,6 @@
                                                 <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Kl-Nt-SkV">
-                                                <rect key="frame" x="148" y="85.5" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1311,12 +1306,12 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stt-wM-x0D">
-                                        <rect key="frame" x="16" y="1104.5" width="343" height="20"/>
+                                        <rect key="frame" x="16" y="1104.5" width="343" height="295"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.627" green="0.64300000000000002" blue="0.68600000000000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="gotoTenDaysWeatherDetail:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Pw2-Zs-ujY"/>
+                                            <action selector="gotoTenDays:" destination="gTV-IL-0wX" eventType="touchUpInside" id="2iF-eY-XRe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1346,6 +1341,7 @@
                                     <constraint firstItem="2CU-JL-jTh" firstAttribute="top" secondItem="a55-eJ-14b" secondAttribute="bottom" constant="40" id="TwH-l8-Gzi"/>
                                     <constraint firstAttribute="trailing" secondItem="Fey-Eu-Q0b" secondAttribute="trailing" constant="16" id="Ugs-9u-ZUo"/>
                                     <constraint firstItem="ISX-FZ-UE1" firstAttribute="top" secondItem="SKT-2I-UiP" secondAttribute="bottom" constant="8" id="VUD-zH-ELH"/>
+                                    <constraint firstItem="Stt-wM-x0D" firstAttribute="bottom" secondItem="0lk-KR-1Di" secondAttribute="bottom" id="Wvf-e0-6Si"/>
                                     <constraint firstItem="ioe-AJ-hpT" firstAttribute="top" secondItem="2CU-JL-jTh" secondAttribute="bottom" constant="40" id="Y6Y-BW-CBH"/>
                                     <constraint firstItem="SKT-2I-UiP" firstAttribute="trailing" secondItem="Fey-Eu-Q0b" secondAttribute="trailing" id="Zu6-tS-GWi"/>
                                     <constraint firstItem="0lk-KR-1Di" firstAttribute="trailing" secondItem="SrG-n1-9xh" secondAttribute="trailing" id="bIZ-lS-2TL"/>
@@ -1364,7 +1360,6 @@
                                     <constraint firstItem="K7r-nZ-CQh" firstAttribute="trailing" secondItem="UoH-JC-W89" secondAttribute="trailing" id="pZJ-Ep-zNr"/>
                                     <constraint firstItem="K7r-nZ-CQh" firstAttribute="leading" secondItem="UoH-JC-W89" secondAttribute="leading" id="piY-j4-8mG"/>
                                     <constraint firstItem="Stt-wM-x0D" firstAttribute="leading" secondItem="SWQ-kL-uaJ" secondAttribute="leading" id="spK-g3-oX2"/>
-                                    <constraint firstItem="Stt-wM-x0D" firstAttribute="bottom" secondItem="SWQ-kL-uaJ" secondAttribute="bottom" id="w8Y-62-Cca"/>
                                     <constraint firstItem="Stt-wM-x0D" firstAttribute="top" secondItem="SWQ-kL-uaJ" secondAttribute="top" id="xfn-64-qhD"/>
                                     <constraint firstItem="DSM-Oa-sTR" firstAttribute="top" secondItem="yGG-87-2ho" secondAttribute="bottom" constant="24" id="zDM-Jz-wot"/>
                                     <constraint firstItem="ioe-AJ-hpT" firstAttribute="trailing" secondItem="2CU-JL-jTh" secondAttribute="trailing" id="zRe-XM-Z8h"/>

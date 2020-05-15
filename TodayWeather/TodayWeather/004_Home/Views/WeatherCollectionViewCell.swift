@@ -109,6 +109,9 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var windDirectionLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
+    
+    var gotoTenDaysDetail: ((WeatherCollectionViewCell) -> Swift.Void)?
+    var goto24Hours: ((WeatherCollectionViewCell) -> Swift.Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         slider.setThumbImage(UIImage(named: "dot"), for: .normal)
@@ -278,10 +281,13 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         return sunTime
     }
     
+    @IBAction func gotoTenDays(_ sender: Any) {
+        gotoTenDaysDetail?(self)
+    }
     
 }
 
-extension WeatherCollectionViewCell: UICollectionViewDataSource {
+extension WeatherCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 24
     }
@@ -292,6 +298,10 @@ extension WeatherCollectionViewCell: UICollectionViewDataSource {
         cell.boundView.isHidden = indexPath.row != 0
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        goto24Hours?(self)
+    }
 }
 
 extension WeatherCollectionViewCell: UICollectionViewDelegateFlowLayout {
@@ -301,7 +311,6 @@ extension WeatherCollectionViewCell: UICollectionViewDelegateFlowLayout {
 }
 
 extension WeatherCollectionViewCell {
-
         func configChart() {
             lineChart.chartDescription?.enabled = false
             lineChart.dragEnabled = false

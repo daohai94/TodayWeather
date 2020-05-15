@@ -182,22 +182,31 @@ class HomeViewController: UIViewController {
         }
         self.menuVC = menuVC
         menuVC.closeMenuCallBack = { [weak self] in
-            self?.closeMenuView(completion: nil)
+            guard let `self` = self else { return }
+            self.closeMenuView(completion: nil)
         }
         menuVC.openSettingsCallBack = { [weak self] in
-            self?.closeMenuView(completion: {
-                self?.openSettingsViewController()
+            guard let `self` = self else { return }
+            self.closeMenuView(completion: {
+                self.openSettingsViewController()
             })
         }
         menuVC.openAddLocationView = { [weak self] in
-            self?.closeMenuView(completion: {
-                self?.openAddLocationView()
+            guard let `self` = self else { return }
+            self.closeMenuView(completion: {
+                self.openAddLocationView()
             })
         }
         menuVC.deleteLocation = { [weak self] in
-            self?.collectionview.reloadData()
-            
-            
+            guard let `self` = self else { return }
+            self.collectionview.reloadData()
+        }
+        
+        menuVC.gotoLocation = { [weak self] index in
+            guard let `self` = self else { return }
+            self.closeMenuView(completion: {
+                self.collectionview.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
+            })
         }
         self.addChildVC(intoView: self.menuView, viewController: menuVC)
         self.view.bringSubviewToFront(menuView)
@@ -235,6 +244,7 @@ class HomeViewController: UIViewController {
                 HUD.flash(.success, delay: 1.0)
                 self.isLoading = false
                 self.collectionview.isHidden = false
+                self.collectionview.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
                 self.collectionview.reloadData()
             }
         }
@@ -329,7 +339,31 @@ extension HomeViewController: UICollectionViewDataSource {
                 cell.setSevenDays(days: daily.prefix(8).dropLast())
             }
         }
+        cell.gotoTenDaysDetail = gotoTenDays(_ :)
+        cell.goto24Hours = goto24Hours(_:)
         return cell
+    }
+    
+    func goto24Hours(_ cell: WeatherCollectionViewCell) {
+        guard let settingsVC = UIStoryboard(name: AppStoryboard.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.thirtySixHoursWeatherVC.rawValue) as? ThirtySixHoursWeatherViewController else {
+            return
+        }
+        if let indexPath = collectionview.indexPath(for: cell) {
+//            let weather = AppManager.weatherDayDatas[indexPath.row]
+//            settingsVC.daylies = weather.dailyes ?? []
+        }
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    func gotoTenDays(_ cell: WeatherCollectionViewCell) {
+        guard let settingsVC = UIStoryboard(name: AppStoryboard.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.tenDaysWeatherVC.rawValue) as? TenDaysWeatherViewController else {
+            return
+        }
+        if let indexPath = collectionview.indexPath(for: cell) {
+            let weather = AppManager.weatherDayDatas[indexPath.row]
+            settingsVC.daylies = weather.dailyes ?? []
+        }
+        self.navigationController?.pushViewController(settingsVC, animated: true)
     }
 }
 

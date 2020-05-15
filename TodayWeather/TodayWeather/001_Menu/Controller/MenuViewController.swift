@@ -15,6 +15,7 @@ class MenuViewController: UIViewController {
     var openSettingsCallBack:(()->())?
     var openAddLocationView:(()->())?
     var deleteLocation: (()->())?
+    var gotoLocation: ((Int) -> ())?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,7 +84,7 @@ extension MenuViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didSelectRowAt: \(indexPath.row)")
+        gotoLocation?(indexPath.row)
     }
     
     
