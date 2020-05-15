@@ -102,7 +102,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var aiqDesLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     
-    @IBOutlet weak var sunSetView: UIView!
+    @IBOutlet weak var sunSetView: SunView!
 
     @IBOutlet weak var windImageView: UIImageView!
     
