@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (4.8.2)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - PKHUD (5.3.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.2)
+  - Charts
   - PKHUD
   - SwiftyJSON (= 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Charts
     - PKHUD
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: bb86dfacb31b98e26e25c7db8d34226650d50be2
+PODFILE CHECKSUM: c96b9d8e3c462f791922b574ad0ee5897e034403
 
 COCOAPODS: 1.9.1

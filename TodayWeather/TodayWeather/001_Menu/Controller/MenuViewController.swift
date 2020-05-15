@@ -50,9 +50,9 @@ class MenuViewController: UIViewController {
         alertDelete.view.tintColor = .black
         alertDelete.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
             AppManager.weatherData.remove(at: sender.tag)
-            var saved = AppManager.cities
+            var saved = AppManager.savedCities
             saved.remove(at: sender.tag)
-            AppManager.cities = saved
+            AppManager.savedCities = saved
             self.tableView.reloadData()
             self.deleteLocation?()
         }))

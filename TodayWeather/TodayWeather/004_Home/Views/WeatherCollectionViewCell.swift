@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class WeatherCollectionViewCell: UICollectionViewCell {
 
@@ -92,6 +93,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sixDaysAgoWeatherLabel: UIImageView!
     // next 7 days weather end
     
+    @IBOutlet weak var lineChart: LineChartView!
+    
     //air quality
     
     @IBOutlet weak var aiqLabel: UILabel!
@@ -119,6 +122,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         } catch {
             print(error)
         }
+        configChart()
     }
     
     func setData(_ current: CurrentWeatherDataModelElement) {
@@ -262,6 +266,65 @@ extension WeatherCollectionViewCell: UICollectionViewDataSource {
 extension WeatherCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 60, height: 120)
+    }
+}
+
+extension WeatherCollectionViewCell {
+
+        func configChart() {
+            lineChart.chartDescription?.enabled = false
+            lineChart.dragEnabled = false
+            lineChart.setScaleEnabled(false)
+            lineChart.pinchZoomEnabled = false
+            lineChart.drawGridBackgroundEnabled = false
+            lineChart.rightAxis.enabled = false
+            lineChart.legend.form = .line
+            lineChart.legend.enabled = false
+            lineChart.highlightPerTapEnabled = false
+            
+            let leftAxis = lineChart.leftAxis
+            leftAxis.removeAllLimitLines()
+            leftAxis.axisMaximum = 100
+            leftAxis.axisMinimum = 0
+            leftAxis.labelTextColor = .white
+            leftAxis.labelFont = .systemFont(ofSize: 14)
+            leftAxis.drawGridLinesEnabled = false
+            
+            let xAxis = lineChart.xAxis
+            xAxis.labelTextColor = UIColor(hexString: "8C8C8C")
+            xAxis.labelFont = .systemFont(ofSize: 14)
+            xAxis.drawGridLinesEnabled = false
+            xAxis.labelPosition = .bottom
+            updateChartData()            
+        }
+        
+        func updateChartData() {
+            self.setDataCount(10, range: UInt32(40))
+        }
+        
+    
+    func setDataCount(_ count: Int, range: UInt32) {
+        let values = (0..<count).map { (i) -> ChartDataEntry in
+            let val = Double(arc4random_uniform(range) + 3)
+            return ChartDataEntry(x: Double(i), y: val, icon: #imageLiteral(resourceName: "r04d"))
+        }
+        
+        let set1 = LineChartDataSet(entries: values, label: "DataSet 1")
+        set1.drawIconsEnabled = false
+        set1.setColor(.white)
+        set1.setCircleColor(.white)
+        set1.lineWidth = 0
+        set1.circleRadius = 0
+        set1.drawValuesEnabled = false
+        set1.drawCircleHoleEnabled = true
+        
+        set1.fillAlpha = 1
+        set1.fill = Fill(color: UIColor(hexString: "5A96F2"))
+        set1.drawFilledEnabled = true
+        
+        let data = LineChartData(dataSet: set1)
+        
+        lineChart.data = data
     }
 }
 

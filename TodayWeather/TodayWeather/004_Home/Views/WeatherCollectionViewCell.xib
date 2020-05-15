@@ -912,7 +912,7 @@
                                                 <color key="textColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJi-Su-dib">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJi-Su-dib" customClass="LineChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="35.5" width="343" height="180"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -1381,6 +1381,7 @@
                 <outlet property="fourDaysAgoWeatherLabel" destination="53O-nW-zzU" id="gT7-jV-5yQ"/>
                 <outlet property="hourlyWeatherCLV" destination="eLu-gP-hDX" id="uwT-ol-sM3"/>
                 <outlet property="humidityLabel" destination="RoI-zF-pO7" id="LgB-sB-HKM"/>
+                <outlet property="lineChart" destination="UJi-Su-dib" id="w5E-I6-72k"/>
                 <outlet property="maxTemLabel" destination="ITY-Lh-NRI" id="E3R-Bb-7Yg"/>
                 <outlet property="maxTempCurrentLabel" destination="oik-bQ-omv" id="e7s-ca-j5J"/>
                 <outlet property="maxTempFiveDaysLabel" destination="7hH-yH-3fe" id="3Yb-s1-j0F"/>
