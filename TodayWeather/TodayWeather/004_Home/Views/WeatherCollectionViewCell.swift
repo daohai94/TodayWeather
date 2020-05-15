@@ -252,8 +252,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     func setSunView(timezone:String,sunset:String,sunrise:String) {
         let timeZone = TimeZone(identifier: timezone)
         let sunTime = getSunTimeByTimeZone(timezone:timeZone!, sunset: sunset, sunrise: sunrise,now: Date().Date2String(format: "HH:mm"))
-        sunSetView.stringFrom = sunrise
-        sunSetView.stringTo = sunset
+        sunSetView.stringFrom = sunTime.sunriseString
+        sunSetView.stringTo = sunTime.sunsetString
         if sunTime.now <= sunTime.sunrise {
             sunSetView.percent = 0
         } else if sunTime.now >= sunTime.sunset {
@@ -263,7 +263,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         }
     }
     func getSunTimeByTimeZone(timezone:TimeZone,sunset:String,sunrise:String,now:String) -> SunTime{
-        var sunTime = SunTime(sunrise: Date(), sunset: Date(), now: Date())
+        var sunTime = SunTime(sunrise: Date(), sunset: Date(), now: Date(),sunriseString: "",sunsetString: "")
         let dateformatter = DateFormatter()
         dateformatter.timeZone = TimeZone(abbreviation: "GMT")
         dateformatter.dateFormat = "HH:mm"
@@ -273,6 +273,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         sunTime.sunrise = (dateformatter.date(from: sunrise)?.add(component: .second, value: (timezone.secondsFromGMT())))!
         sunTime.sunset = (dateformatter.date(from: sunset)?.add(component: .second, value: (timezone.secondsFromGMT())).add(component: .day, value: 1))!
         sunTime.now = (dateformatter.date(from: now)?.add(component: .second, value: (timezone.secondsFromGMT())))!
+        sunTime.sunsetString = dateformatter.string(from: sunTime.sunset)
+        sunTime.sunriseString = dateformatter.string(from: sunTime.sunrise)
         return sunTime
     }
     
@@ -360,6 +362,9 @@ struct SunTime {
     var sunrise:Date
     var sunset:Date
     var now:Date
+    var sunriseString:String
+    var sunsetString:String
+    
 }
 enum AirQuality {
     case good
