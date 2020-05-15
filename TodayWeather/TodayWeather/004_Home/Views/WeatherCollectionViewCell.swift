@@ -252,8 +252,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     func setSunView(timezone:String,sunset:String,sunrise:String) {
         let timeZone = TimeZone(identifier: timezone)
         let sunTime = getSunTimeByTimeZone(timezone:timeZone!, sunset: sunset, sunrise: sunrise,now: Date().Date2String(format: "HH:mm"))
-        sunSetView.stringFrom = sunTime.sunrise.Date2String(format: "HH:mm")
-        sunSetView.stringTo = sunTime.sunset.Date2String(format: "HH:mm")
+        sunSetView.stringFrom = sunrise
+        sunSetView.stringTo = sunset
         if sunTime.now <= sunTime.sunrise {
             sunSetView.percent = 0
         } else if sunTime.now >= sunTime.sunset {
