@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="2773"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gta-jw-nVT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="2512.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="2552.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fey-Eu-Q0b">
                                         <rect key="frame" x="16" y="8" width="343" height="343"/>
@@ -1130,7 +1130,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioe-AJ-hpT">
-                                        <rect key="frame" x="16" y="1935.5" width="343" height="173.5"/>
+                                        <rect key="frame" x="16" y="1935.5" width="343" height="213.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mặt trời" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaC-hc-Piv">
                                                 <rect key="frame" x="0.0" y="0.0" width="56.5" height="19.5"/>
@@ -1139,10 +1139,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-CM-wpe" customClass="SunView" customModule="TodayWeather" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="43.5" width="343" height="130"/>
+                                                <rect key="frame" x="0.0" y="43.5" width="343" height="170"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="130" id="rMx-Zc-JLH"/>
+                                                    <constraint firstAttribute="height" constant="170" id="rMx-Zc-JLH"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1157,7 +1157,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoH-JC-W89">
-                                        <rect key="frame" x="16" y="2149" width="343" height="171"/>
+                                        <rect key="frame" x="16" y="2189" width="343" height="171"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trăng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLM-6A-ydU">
                                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="19.5"/>
@@ -1242,7 +1242,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7r-nZ-CQh">
-                                        <rect key="frame" x="16" y="2360" width="343" height="152.5"/>
+                                        <rect key="frame" x="16" y="2400" width="343" height="152.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gió" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZh-CK-VWw">
                                                 <rect key="frame" x="0.0" y="0.0" width="24.5" height="19.5"/>

@@ -57,7 +57,7 @@ class SunView: UIView {
     }
     
     let pixel: CGFloat = 1 / UIScreen.main.scale
-    let heightFooter: CGFloat = 0
+    let heightFooter: CGFloat = 40
     
     func drawLayer(fromTitle: String, toTitle: String, percent: CGFloat) {
         self.stringFrom = fromTitle
@@ -127,7 +127,7 @@ class SunView: UIView {
         var isDrawSun = false
         for index in (0...numberDot) {
             var willcheck = false
-            if CGFloat(index)/CGFloat(numberDot) > percen {
+            if CGFloat(index)/CGFloat(numberDot) >= percen {
                 color = lineButtomColor
                 willcheck = true
             } else {
@@ -156,6 +156,7 @@ class SunView: UIView {
                 sunView.center = CGPoint(x: margin + point.x, y: frame.height - heightFooter - point.y)
                 sunView.tag = 3
                 addSubview(sunView)
+                sunView.layer.zPosition = 1000
                 isDrawSun = true
             }
         }
