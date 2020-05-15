@@ -270,12 +270,17 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         let dateformatter = DateFormatter()
         dateformatter.timeZone = TimeZone(abbreviation: "GMT")
         dateformatter.dateFormat = "HH:mm"
-        print("SUNRISE: \(dateformatter.date(from: sunrise)?.add(component: .second, value: (timezone.secondsFromGMT())))")
-        print("SUNSET: \(dateformatter.date(from: sunset)?.add(component: .second, value: (timezone.secondsFromGMT())))")
-        print("NOW: \(dateformatter.date(from: now)?.add(component: .second, value: (timezone.secondsFromGMT())))")
         sunTime.sunrise = (dateformatter.date(from: sunrise)?.add(component: .second, value: (timezone.secondsFromGMT())))!
         sunTime.sunset = (dateformatter.date(from: sunset)?.add(component: .second, value: (timezone.secondsFromGMT())).add(component: .day, value: 1))!
-        sunTime.now = (dateformatter.date(from: now)?.add(component: .second, value: (timezone.secondsFromGMT())))!
+        var dateComponents = DateComponents()
+        var calendar = Calendar.current
+        calendar.timeZone = timezone
+        dateComponents.hour = calendar.component(.hour, from: Date())
+        dateComponents.minute = calendar.component(.minute, from: Date())
+        dateComponents.year = calendar.component(.year, from: sunTime.sunrise)
+        dateComponents.month = calendar.component(.month, from: sunTime.sunrise)
+        dateComponents.day = calendar.component(.day, from: sunTime.sunrise)
+        sunTime.now = (calendar.date(from: dateComponents)?.add(component: .second, value: timezone.secondsFromGMT()))!
         sunTime.sunsetString = dateformatter.string(from: sunTime.sunset)
         sunTime.sunriseString = dateformatter.string(from: sunTime.sunrise)
         return sunTime
