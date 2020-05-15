@@ -18,12 +18,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var menuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var lblCurrentTime: UILabel!
     
     let locationManager = CLLocationManager()
 //    var weather16Days: [[DailyWeatherDataModelElement]] = []
     let dispactGroup = DispatchGroup()
     var isLoading = true
     var menuVC: MenuViewController?
+    var timer:Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,16 @@ class HomeViewController: UIViewController {
         collectionview.register(UINib(nibName: "WeatherCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WeatherCollectionViewCell")
         loadSaveLocation()
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateCurrentTime()
+    }
+    
+    func updateCurrentTime() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
+            self.lblCurrentTime.text = Date().Date2String(format: "HH:mm")
+        })
     }
     
     func loadSaveLocation() {
@@ -171,6 +183,7 @@ class HomeViewController: UIViewController {
     }
     
     func initComponent() {
+        self.lblCurrentTime.text = Date().Date2String(format: "HH:mm")
         self.menuBackgroundView.isHidden = true
         self.menuBackgroundView.isUserInteractionEnabled = false
         self.menuTrailingConstraint.constant = -1000
