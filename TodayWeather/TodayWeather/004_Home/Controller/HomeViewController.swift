@@ -263,6 +263,23 @@ class HomeViewController: UIViewController {
     }
     
     func openMenuView() {
+        for (index, item) in AppManager.weatherDayDatas.enumerated() {
+            if item.current == nil || item.dailyes == nil {
+                HUD.show(.progress)
+                isLoading = true
+                getWeather(item.lat ?? 0, long: item.lon ?? 0, index: index)
+                getDailyWeather(item.lat ?? 0, long: item.lon ?? 0, index: index)
+            }
+        }
+        if isLoading {
+            self.dispactGroup.notify(queue: .main) {
+                HUD.flash(.success, delay: 1.0)
+                self.isLoading = false
+                self.menuVC?.tableView.reloadData()
+                self.collectionview.isHidden = false
+                self.collectionview.reloadData()
+            }
+        }
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
             self.menuVC?.tableView.reloadData()
             self.menuBackgroundView.isHidden = false

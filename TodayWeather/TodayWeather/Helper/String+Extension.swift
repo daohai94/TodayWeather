@@ -10,11 +10,11 @@ import UIKit
 
 extension Double {
     func toTempString() -> String {
-        return "\(Int(self)) ° C"
+        return "\(Int(self))" + " " + (AppManager.currentUserSetting?.temperatureUnit ?? "° C")
     }
         
     func toTempNonSpaceString() -> String {
-        return "\(Int(self))°C"
+        return "\(Int(self))" + (AppManager.currentUserSetting?.temperatureUnit ?? "°C")
     }
 
     func toTemp() -> String {

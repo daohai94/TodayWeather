@@ -12,6 +12,7 @@ import CoreLocation
 
 class WeatherCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var currentTemLabel: UILabel!
     @IBOutlet weak var maxTemLabel: UILabel!
     @IBOutlet weak var minTemLabel: UILabel!
@@ -130,6 +131,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     }
     
     func setData(_ current: CurrentWeatherDataModelElement) {
+        thumbImageView.isHidden = !(AppManager.currentUserSetting?.isEnabledPicture ?? true)
         currentTemLabel.text = current.temp?.toTempString()
         currentTimeLabel.text = DateFormatter.string(from: Date(), format: DateFormat.EddMMM, timeZone: .current)
         cityLabel.text = current.cityName
@@ -138,11 +140,11 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         feelLikeLabel.text = current.appTemp?.toTempNonSpaceString()
         humidityLabel.text = (current.rh?.toString() ?? "") + "%"
         uvLabel.text =  current.uv?.toString()
-        visibilityLabel.text = (current.vis?.toString() ?? "") + " km"
+        visibilityLabel.text = (current.vis?.toString() ?? "") + " \(AppManager.currentUserSetting?.distanceInit ?? "km")"
         dewPointLabel.text = current.dewpt?.toTempNonSpaceString()
         pressureLabel.text = current.pres?.toString()
         hourlyWeatherCLV.reloadData()
-        windSpeedLabel.text = "\(Int(current.windSpd ?? 0)) km/h"
+        windSpeedLabel.text = "\(Int(current.windSpd ?? 0)) \(AppManager.currentUserSetting?.speedUnit ?? "km/h")"
         windDirectionLabel.text = current.windCdirFull
         setSunView(timezone: current.timezone!, sunset: current.sunset!, sunrise: current.sunrise!)
     }
