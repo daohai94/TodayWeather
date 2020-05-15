@@ -177,7 +177,6 @@ class HomeViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.menuBackgroundViewTappedHandle(_:)))
         self.menuBackgroundView.addGestureRecognizer(tapGesture)
         guard let menuVC = UIStoryboard(name: AppStoryboard.menu.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.menuVC.rawValue) as? MenuViewController else {
-            print("HAIDT - initComponent: MenuViewController is nil")
             return
         }
         self.menuVC = menuVC
@@ -243,7 +242,7 @@ class HomeViewController: UIViewController {
             self.dispactGroup.notify(queue: .main) {
                 HUD.flash(.success, delay: 1.0)
                 self.isLoading = false
-                self.collectionview.isHidden = false            
+                self.collectionview.isHidden = false
                 self.collectionview.reloadData()
                 self.collectionview.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
             }
@@ -253,12 +252,12 @@ class HomeViewController: UIViewController {
     
     func openSettingsViewController() {
         guard let settingsVC = UIStoryboard(name: AppStoryboard.settings.rawValue, bundle: nil).instantiateViewController(withIdentifier: AppViewController.settingsVC.rawValue) as? SettingsViewController else {
-            print("HAIDT - initComponent: SettingsViewController is nil")
             return
         }
         settingsVC.closeSettingCallBack = { [weak self] in
-            print("HAIDT userSetting: \(AppManager.currentUserSetting!)")
             // do some thing
+            guard let `self` = self else { return }
+            self.collectionview.reloadData()
         }
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
