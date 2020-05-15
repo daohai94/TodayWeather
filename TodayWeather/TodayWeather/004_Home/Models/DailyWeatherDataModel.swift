@@ -33,6 +33,12 @@ struct DailyWeatherDataModelElement {
     var moonPhase:Double?
     var moonPhaseLunation: Double?
     var moonriseTs, moonsetTs, sunriseTs, sunsetTs: Int?
+    
+    func weatherDescription() -> String {
+        return (self.weather?.weatherDescription ?? "")
+        + ". High \(self.maxTemp?.toTemp() ?? "")"
+        + ", low \(self.minTemp?.toTemp() ?? ""). Wind \(self.windCdirFull ?? "") at \(Int(self.windSpd ?? 0)) km/h"
+    }
 }
 
 // MARK: DailyWeatherDataModelElement convenience initializers and mutators

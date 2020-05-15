@@ -312,7 +312,6 @@ extension HomeViewController: CLLocationManagerDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return AppManager.weatherData.count
         return AppManager.weatherDayDatas.count
     }
     
@@ -330,14 +329,6 @@ extension HomeViewController: UICollectionViewDataSource {
                 cell.setSevenDays(days: daily.prefix(8).dropLast())
             }
         }
-//        if !AppManager.weatherData.isEmpty {
-//            cell.setData(AppManager.weatherData[indexPath.row])
-//            cell.setAirQuality(AppManager.weatherData[indexPath.row])
-//        }
-//        if !weather16Days.isEmpty {
-//            cell.setDaily(weather16Days[indexPath.row][0])
-//            cell.setSevenDays(days: weather16Days[indexPath.row].prefix(8).dropLast())
-//        }
         return cell
     }
 }
@@ -364,8 +355,8 @@ extension HomeViewController: UIScrollViewDelegate {
                     }
                     getDailyWeather(lat, long: lon, index: indexPath.row)
                 }
+                break
             }
-            break
         }
         if isLoading {
             self.dispactGroup.notify(queue: .main) {

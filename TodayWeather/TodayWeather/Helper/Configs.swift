@@ -15,4 +15,5 @@ struct Configs {
 
 struct DateFormat {
     static let EddMMM = "E','dd MMM"
+    static let EEEdMMM = "EEEE', 'd MMM"
 }

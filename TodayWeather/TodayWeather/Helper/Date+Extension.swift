@@ -48,5 +48,18 @@ extension DateFormatter {
         
         return formatter.string(from: date)
     }
+    
+    static func string(from timestamp: Int, format: String, localeIdentifier: String? = nil, timeZone: TimeZone? = nil) -> String {
+        
+        let formatter = DateFormatter.formatter(
+            with: format,
+            localeIdentifier: localeIdentifier,
+            timeZone: timeZone
+        )
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+        
+        return formatter.string(from: date)
+    }
 
 }

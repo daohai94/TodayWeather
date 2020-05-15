@@ -11,6 +11,7 @@ import UIKit
 class TenDaysWeatherViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var daylies = [DailyWeatherDataModelElement]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,11 +40,12 @@ class TenDaysWeatherViewController: UIViewController {
 //MARK: - Tableview delegate, datasource
 extension TenDaysWeatherViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return daylies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayWeatherCell", for: indexPath) as! DayWeatherCell
+        cell.setData(daylies[indexPath.row])
         return cell
     }
     

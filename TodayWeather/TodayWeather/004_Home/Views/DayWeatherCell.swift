@@ -26,4 +26,12 @@ class DayWeatherCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setData(_ day: DailyWeatherDataModelElement) {
+        lblDay.text = DateFormatter.string(from: day.ts ?? 0, format: DateFormat.EEEdMMM)
+        lblTemperature.text = (day.maxTemp?.toTempNonSpaceString() ?? "") + " / " + (day.minTemp?.toTempNonSpaceString() ?? "")
+        lblDescription.text = day.weatherDescription()
+        lblRainPercent.text = "\(day.pop ?? 0)%"
+        lblRainPercent.isHidden = (day.pop ?? 0) <= 0
+        imgWeatherStatus.image = UIImage(named: day.weather?.icon ?? "")
+    }
 }
