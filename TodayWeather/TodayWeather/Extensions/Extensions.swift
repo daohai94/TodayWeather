@@ -122,6 +122,9 @@ extension Date {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
+    func add(component: Calendar.Component, value: Int) -> Date {
+        return Calendar.current.date(byAdding: component, value: value, to: self)!
+    }
 }
 
 extension String {
