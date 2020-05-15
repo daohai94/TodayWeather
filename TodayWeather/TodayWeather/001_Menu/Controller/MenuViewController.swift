@@ -49,7 +49,7 @@ class MenuViewController: UIViewController {
         let alertDelete = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertDelete.view.tintColor = .black
         alertDelete.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
-            AppManager.weatherData.remove(at: sender.tag)
+            AppManager.weatherDayDatas.remove(at: sender.tag)
             var saved = AppManager.savedCities
             saved.remove(at: sender.tag)
             AppManager.savedCities = saved
@@ -64,12 +64,14 @@ class MenuViewController: UIViewController {
 //MARK: - Table view delegate - datasource
 extension MenuViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppManager.weatherData.count
+        return AppManager.weatherDayDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
-        cell.setData(AppManager.weatherData[indexPath.row])
+        if let current = AppManager.weatherDayDatas[indexPath.row].current {
+            cell.setData(current)
+        }
         cell.btnOption.tag = indexPath.row
         cell.btnOption.addTarget(self, action: #selector(self.optionsButtonTapped(_:)), for: .touchUpInside)
         cell.selectionStyle = .none

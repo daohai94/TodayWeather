@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     
     let locationManager = CLLocationManager()
-    var weather16Days: [[DailyWeatherDataModelElement]] = []
+//    var weather16Days: [[DailyWeatherDataModelElement]] = []
     let dispactGroup = DispatchGroup()
     var isLoading = true
     var menuVC: MenuViewController?
@@ -42,12 +42,17 @@ class HomeViewController: UIViewController {
         let cities = AppManager.savedCities
         if cities.isEmpty { return }
         HUD.show(.progress)
-        for (index, element) in cities.enumerated() {
-            AppManager.weatherData.append(CurrentWeatherDataModelElement())
-            weather16Days.append([])
-            getWeather(Double(element.lat), long: Double(element.lon), index: index)
-            getDailyWeather(Double(element.lat), long: Double(element.lon), index: index)
+        for item in cities {
+            let weather = WeatherDay()
+            weather.lat = Double(item.lat)
+            weather.lon = Double(item.lon)
+            AppManager.weatherDayDatas.append(weather)
+//            getWeather(Double(element.lat), long: Double(element.lon), index: index)
+//            getDailyWeather(Double(element.lat), long: Double(element.lon), index: index)
         }
+        
+        getWeather(Double(cities[0].lat), long: Double(cities[0].lon), index: 0)
+        getDailyWeather(Double(cities[0].lat), long: Double(cities[0].lon), index: 0)
         
         dispactGroup.notify(queue: .main) {
             HUD.flash(.success, delay: 1.0)
@@ -56,7 +61,27 @@ class HomeViewController: UIViewController {
             self.collectionview.reloadData()
         }
     }
-
+    
+    
+//    func loadSaveLocation() {
+//        let cities = AppManager.savedCities
+//        if cities.isEmpty { return }
+//        HUD.show(.progress)
+//        for (index, element) in cities.enumerated() {
+//            AppManager.weatherData.append(CurrentWeatherDataModelElement())
+//            weather16Days.append([])
+//            getWeather(Double(element.lat), long: Double(element.lon), index: index)
+//            getDailyWeather(Double(element.lat), long: Double(element.lon), index: index)
+//        }
+//
+//        dispactGroup.notify(queue: .main) {
+//            HUD.flash(.success, delay: 1.0)
+//            self.isLoading = false
+//            self.collectionview.isHidden = false
+//            self.collectionview.reloadData()
+//        }
+//    }
+    
     func getWeather(_ lat: Double, long: Double, index: Int) {
         dispactGroup.enter()
         _ = ApiClient.getWeather(lat: lat, long: long, success: {[weak self] (data) in
@@ -66,15 +91,19 @@ class HomeViewController: UIViewController {
             if let jsonArray = jsonData.array {
                 if let currentWeatherJSON = jsonArray.first {
                     let current = CurrentWeatherDataModelElement(json: currentWeatherJSON)
-                    AppManager.weatherData.remove(at: index)
-                    AppManager.weatherData.insert(current, at: index)
+//                    AppManager.weatherData.remove(at: index)
+//                    AppManager.weatherData.insert(current, at: index)
+                    let weather = AppManager.weatherDayDatas[index]
+                    weather.current = current
+                    weather.lastUpdateDate = Date()
+                    
                 }
             }
             weakSelf.dispactGroup.leave()
             
-        }, fail: { (statusCode, error) in
-            self.dispactGroup.leave()
-            print(error)
+            }, fail: { (statusCode, error) in
+                self.dispactGroup.leave()
+                print(error)
         })
     }
     
@@ -90,8 +119,11 @@ class HomeViewController: UIViewController {
                     let daily = DailyWeatherDataModelElement(json: item)
                     dailies.append(daily)
                 }
-                weakSelf.weather16Days.remove(at: index)
-                weakSelf.weather16Days.insert(dailies, at: index)//append(dailies)
+//                weakSelf.weather16Days.remove(at: index)
+//                weakSelf.weather16Days.insert(dailies, at: index)//append(dailies)
+                let weather = AppManager.weatherDayDatas[index]
+                weather.dailyes = dailies
+                weather.lastUpdateDate = Date()
             }
             weakSelf.dispactGroup.leave()
             }, fail: { (statusCode, error) in
@@ -105,39 +137,39 @@ class HomeViewController: UIViewController {
         _ = ApiClient.getHourlyWeather(lat: lat, long: long, success: { (data) in
             let jsonData = JSON(data)["data"]
             print("JSON: \(jsonData)")
-//            if let currentWeatherModel = try? HourlyWeatherDataModel(data: jsonData.rawData()) {
-//                print("HAIDT: ---- \(currentWeatherModel)")
-//            }
+            //            if let currentWeatherModel = try? HourlyWeatherDataModel(data: jsonData.rawData()) {
+            //                print("HAIDT: ---- \(currentWeatherModel)")
+            //            }
         }, fail: { (statusCode, error) in
             print(error)
         })
     }
-
+    
     func retriveCurrentLocation(){
         let status = CLLocationManager.authorizationStatus()
-
+        
         if(status == .denied || status == .restricted || !CLLocationManager.locationServicesEnabled()){
             // show alert to user telling them they need to allow location data to use some feature of your app
             return
         }
-
+        
         // if haven't show location permission dialog before, show it to user
         if(status == .notDetermined){
             locationManager.requestWhenInUseAuthorization()
-
+            
             // if you want the app to retrieve location data even in background, use requestAlwaysAuthorization
             // locationManager.requestAlwaysAuthorization()
             return
         }
-
+        
         // at this point the authorization status is authorized
         // request location data once
         locationManager.requestLocation()
-
+        
         // start monitoring location data and get notified whenever there is change in location data / every few seconds, until stopUpdatingLocation() is called
         // locationManager.startUpdatingLocation()
     }
-
+    
     func initComponent() {
         self.menuBackgroundView.isHidden = true
         self.menuBackgroundView.isUserInteractionEnabled = false
@@ -193,8 +225,10 @@ class HomeViewController: UIViewController {
         addLocationVC.addLocationSuccess = { [weak self] city, index in
             guard let `self` = self else { return }
             HUD.show(.progress)
-            AppManager.weatherData.append(CurrentWeatherDataModelElement())
-            self.weather16Days.append([])
+            let weather = WeatherDay()
+            weather.lat = Double(city.lat)
+            weather.lon = Double(city.lon)
+            AppManager.weatherDayDatas.append(weather)
             self.getWeather(Double(city.lat), long: Double(city.lon), index: index)
             self.getDailyWeather(Double(city.lat), long: Double(city.lon), index: index)
             self.dispactGroup.notify(queue: .main) {
@@ -240,7 +274,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print("location manager authorization status changed")
-
+        
         switch status {
         case .authorizedAlways:
             print("user allow app to get location data when app is active or in background")
@@ -256,7 +290,7 @@ extension HomeViewController: CLLocationManagerDelegate {
             print("the location permission dialog haven't shown before, user haven't tap allow/disallow")
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // .requestLocation will only pass one location to the locations array
         // hence we can access it by taking the first element of the array
@@ -270,7 +304,7 @@ extension HomeViewController: CLLocationManagerDelegate {
             }
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
@@ -278,20 +312,32 @@ extension HomeViewController: CLLocationManagerDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return AppManager.weatherData.count
+//        return AppManager.weatherData.count
+        return AppManager.weatherDayDatas.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
         if isLoading { return cell}
-        if !AppManager.weatherData.isEmpty {
-            cell.setData(AppManager.weatherData[indexPath.row])
-            cell.setAirQuality(AppManager.weatherData[indexPath.row])
+        if indexPath.row < AppManager.weatherDayDatas.count {
+            let weather = AppManager.weatherDayDatas[indexPath.row]
+            if let current = weather.current {
+                cell.setData(current)
+                cell.setAirQuality(current)
+            }
+            if let daily = weather.dailyes, !daily.isEmpty {
+                cell.setDaily(daily[0])
+                cell.setSevenDays(days: daily.prefix(8).dropLast())
+            }
         }
-        if !weather16Days.isEmpty {
-            cell.setDaily(weather16Days[indexPath.row][0])
-            cell.setSevenDays(days: weather16Days[indexPath.row].prefix(8).dropLast())
-        }
+//        if !AppManager.weatherData.isEmpty {
+//            cell.setData(AppManager.weatherData[indexPath.row])
+//            cell.setAirQuality(AppManager.weatherData[indexPath.row])
+//        }
+//        if !weather16Days.isEmpty {
+//            cell.setDaily(weather16Days[indexPath.row][0])
+//            cell.setSevenDays(days: weather16Days[indexPath.row].prefix(8).dropLast())
+//        }
         return cell
     }
 }
@@ -300,4 +346,42 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in collectionview.visibleCells {
+            if let indexPath = collectionview.indexPath(for: cell) {
+                let weather = AppManager.weatherDayDatas[indexPath.row]
+                if weather.current == nil, let lat = weather.lat, let lon = weather.lon {
+                    HUD.show(.progress)
+                    isLoading = true
+                    getWeather(lat, long: lon, index: indexPath.row)
+                }
+                if weather.dailyes == nil, let lat = weather.lat, let lon = weather.lon {
+                    if !isLoading {
+                        HUD.show(.progress)
+                    }
+                    getDailyWeather(lat, long: lon, index: indexPath.row)
+                }
+            }
+            break
+        }
+        if isLoading {
+            self.dispactGroup.notify(queue: .main) {
+                HUD.flash(.success, delay: 1.0)
+                self.isLoading = false
+                self.collectionview.isHidden = false
+                self.collectionview.reloadData()
+            }
+        }
+    }
+}
+
+class WeatherDay {
+    var current: CurrentWeatherDataModelElement?
+    var dailyes: [DailyWeatherDataModelElement]?
+    var lat: Double?
+    var lon: Double?
+    var lastUpdateDate: Date?
 }

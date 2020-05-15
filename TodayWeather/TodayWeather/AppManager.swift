@@ -28,5 +28,6 @@ class AppManager {
             userDefaults.synchronize()
         }
     }
-    static var weatherData: [CurrentWeatherDataModelElement] = []
+//    static var weatherData: [CurrentWeatherDataModelElement] = []
+    static var weatherDayDatas: [WeatherDay] = []
 }
