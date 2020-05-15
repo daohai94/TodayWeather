@@ -44,7 +44,7 @@ struct CurrentWeatherDataModelElement {
         return "Today - "
         + (self.weather?.weatherDescription ?? "")
         + ". High \(self.appTemp?.toTemp() ?? "")"
-        + ", low \(self.dewpt?.toTemp() ?? ""). Wind \(self.windCdirFull ?? "") at \(Int(self.windSpd ?? 0)) km/h"
+            + ", low \(self.dewpt?.toTemp() ?? ""). Wind \(self.windCdirFull ?? "") at \(Int(self.windSpd ?? 0)) \(AppManager.currentUserSetting?.speedUnit ?? "km/h")"
     }
 }
 extension CurrentWeatherDataModelElement {

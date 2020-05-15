@@ -1442,6 +1442,7 @@
                 <outlet property="threeDaysAgoRainRateLabel" destination="mXW-HR-MPn" id="OPl-yJ-QpQ"/>
                 <outlet property="threeDaysAgoTop" destination="1AF-1D-25u" id="q0x-gb-b6S"/>
                 <outlet property="threeDaysAgoWeatherLabel" destination="1en-w8-UGj" id="GOV-o7-Nhk"/>
+                <outlet property="thumbImageView" destination="ZXb-GW-g0l" id="Wut-Aj-XFE"/>
                 <outlet property="todayDayLabel" destination="c8d-QQ-dML" id="5OB-g6-LV5"/>
                 <outlet property="todayRainRateLabel" destination="eHM-Ge-uIf" id="qyh-b9-2K2"/>
                 <outlet property="todayWeatherLabel" destination="pdd-wq-D47" id="OBG-G4-y8E"/>

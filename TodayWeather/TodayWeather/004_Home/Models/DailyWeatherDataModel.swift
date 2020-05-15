@@ -37,7 +37,7 @@ struct DailyWeatherDataModelElement {
     func weatherDescription() -> String {
         return (self.weather?.weatherDescription ?? "")
         + ". High \(self.maxTemp?.toTemp() ?? "")"
-        + ", low \(self.minTemp?.toTemp() ?? ""). Wind \(self.windCdirFull ?? "") at \(Int(self.windSpd ?? 0)) km/h"
+        + ", low \(self.minTemp?.toTemp() ?? ""). Wind \(self.windCdirFull ?? "") at \(Int(self.windSpd ?? 0)) \(AppManager.currentUserSetting?.speedUnit ?? "km/h")"
     }
 }
 
