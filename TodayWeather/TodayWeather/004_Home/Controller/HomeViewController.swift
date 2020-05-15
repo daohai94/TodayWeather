@@ -243,9 +243,9 @@ class HomeViewController: UIViewController {
             self.dispactGroup.notify(queue: .main) {
                 HUD.flash(.success, delay: 1.0)
                 self.isLoading = false
-                self.collectionview.isHidden = false
-                self.collectionview.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
+                self.collectionview.isHidden = false            
                 self.collectionview.reloadData()
+                self.collectionview.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
             }
         }
         self.navigationController?.pushViewController(addLocationVC, animated: true)
